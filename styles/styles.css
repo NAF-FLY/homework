@@ -1,0 +1,149 @@
+@import url(/styles/adaptive.css);
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.header {
+	display: block;
+	position: relative;
+	background-color: #6725a8;
+	padding: 20px 0 40px;
+}
+
+.header__container {
+	max-width: 1400px;
+	display: flex;
+	align-items: center;
+	gap: 32px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.header__nav-element {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.nav-element__burger {
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	border-radius: 8px;
+	padding: 12px 10px;
+	transition: border-color ease-in-out 0.2s;
+}
+
+.nav-element__burger:hover {
+	border-color: #ffffff;
+}
+
+.nav-element__burger > img {
+	display: block;
+}
+
+.nav-element__logo {
+	max-width: 110px;
+	font-family: 'Segoe UI';
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 24px;
+	letter-spacing: 0.02em;
+	cursor: default;
+}
+
+.header__search-catalog {
+	flex-grow: 1;
+}
+
+.search-catalog__container {
+	position: relative;
+}
+
+.search-catalog__input {
+	font-family: 'Segoe UI';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: #ffffff;
+	width: 100%;
+	padding: 10px 52px 14px 20px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 36px;
+	cursor: pointer;
+}
+
+.search-catalog__input::placeholder {
+	font-family: 'Segoe UI';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: #ffffff;
+	opacity: 0.5;
+}
+
+.search-catalog__input:focus {
+	cursor: text;
+}
+
+.search-catalog__btn-wrap {
+	display: flex;
+	position: absolute;
+	top: 13.5px;
+	right: 22.5px;
+}
+
+.search-catalog__btn {
+	display: block;
+	position: relative;
+	color: #ffffff;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: opacity linear 0.2s;
+}
+
+.search-catalog__btn:hover {
+	opacity: 1;
+}
+
+.header__navbar-menu {
+	position: relative;
+	display: flex;
+	gap: 40px;
+}
+
+.navbar-menu__item {
+	cursor: pointer;
+}
+
+.navbar-menu__link {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.navbar-menu__icon {
+	display: block;
+	height: 22px;
+	margin: 0 auto 6px;
+	position: relative;
+}
+
+.mobile {
+	display: none;
+}
+
+.header__burger {
+}
+
+.header__burger > img {
+	display: block;
+	width: 22.5px;
+	height: 18.5px;
+}
+
+.header__search {
+	height: 20.14px;
+}

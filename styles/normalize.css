@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	border: none;
+	outline: none;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+a {
+	color: inherit;
+}
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+button {
+	font-size: inherit;
+	cursor: pointer;
+	color: inherit;
+	background-color: inherit;
+}
