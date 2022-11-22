@@ -1,5 +1,6 @@
-const accordion = document.querySelector('.contentBx')
+const btnShow = document.querySelector('.list-items__checkbox-all'),
+	accordion = document.querySelector('.contentBx')
 
-accordion.addEventListener('click', () => {
+btnShow.addEventListener('click', () => {
 	accordion.classList.toggle('active')
 })

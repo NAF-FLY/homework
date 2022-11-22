@@ -188,10 +188,6 @@
 .cart-info__list-items {
 	margin-top: 27px;
 }
-.aside {
-}
-.total-info {
-}
 
 /* прячем input checkbox */
 input[type='checkbox'] {
@@ -393,13 +389,6 @@ input::-webkit-inner-spin-button {
 	border-radius: 16px;
 }
 
-.total-info {
-	font-weight: 700;
-	font-size: 24px;
-	line-height: 32px;
-	letter-spacing: -0.01em;
-}
-
 .accordion .contentBx {
 	position: relative;
 }
@@ -426,4 +415,31 @@ input::-webkit-inner-spin-button {
 
 .contentBx.active .checkbox-all__arrow-icon {
 	transform: rotate(-180deg);
+}
+
+.total-info__price {
+	display: flex;
+	justify-content: space-between;
+}
+
+.price-sum__detail {
+	text-align: end;
+}
+
+.detail-text-main,
+.detail-main-sum {
+	margin-bottom: 8px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 32px;
+	letter-spacing: -0.01em;
+}
+
+.detail-text {
+	line-height: 24px;
+}
+
+.detail-main-sum span {
+	font-size: 20px;
+	line-height: 28px;
 }
