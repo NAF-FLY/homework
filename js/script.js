@@ -1,6 +1,12 @@
-const btnShow = document.querySelector('.list-items__checkbox-all'),
-	accordion = document.querySelector('.contentBx')
+const btnShowCart = document.querySelector('.list-items__checkbox-all'),
+	btnShowMissing = document.querySelector('.list-items__checkbox-all-missing'),
+	accordionCart = document.querySelector('.contentBx'),
+	accordionMissing = document.querySelector('.contentBx-missing')
 
-btnShow.addEventListener('click', () => {
-	accordion.classList.toggle('active')
+btnShowCart.addEventListener('click', () => {
+	accordionCart.classList.toggle('active')
+})
+
+btnShowMissing.addEventListener('click', () => {
+	accordionMissing.classList.toggle('active')
 })
