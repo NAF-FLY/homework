@@ -19,7 +19,6 @@ html {
 body {
 	font-family: 'Segoe UI', sans-serif, system-ui, -apple-system, Roboto;
 	background: #f6f6fa;
-	overflow-x: hidden;
 }
 
 a {
