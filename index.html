@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<!-- Header
+			<!-- Header -->
 			<header class="header">
 				<div class="header__container desktop">
 					<div class="header__nav-element nav-element">
@@ -68,7 +68,7 @@
 						class="header__search"
 					/>
 				</div>
-			</header> -->
+			</header>
 			<!-- Main -->
 			<main class="main">
 				<div class="main__container">
@@ -352,7 +352,9 @@
 						<div class="cart-info__registration-order">
 							<div class="registration-order__delivery-form">
 								<div class="registration-order__header">
-									<h2 class="detail-text-main">Способ доставки</h2>
+									<h2 class="detail-registration__text-main">
+										Способ доставки
+									</h2>
 									<span>Изменить</span>
 								</div>
 								<div class="delivery-form__detail-info">
@@ -394,14 +396,50 @@
 							</div>
 							<div class="registration-order__payment-form">
 								<div class="registration-order__header">
-									<h2 class="detail-text-main">Способ оплаты</h2>
+									<h2 class="detail-registration__text-main">Способ оплаты</h2>
 									<span>Изменить</span>
 								</div>
+								<div class="method-card__choose">
+									<img src="assets/images/icons/mir.svg" alt="card mir" />
+									<span class="choose-card">1234 56•• •••• 1234</span>
+									<span class="choose-card">01/30</span>
+								</div>
+								<span class="payment-form__spoky-text"
+									>Спишем оплату с карты при получении</span
+								>
 							</div>
 							<div class="registration-order__receiver-form">
 								<div class="registration-order__header">
-									<h2 class="detail-text-main">Получатель</h2>
+									<h2 class="detail-registration__text-main">Получатель</h2>
 								</div>
+								<form class="receiver-form__form-filled">
+									<div class="form-filled__top">
+										<div class="input-form__wrapper">
+											<input type="text" placeholder="Имя" />
+											<span class="form-filled__warning">Ошибка</span>
+										</div>
+										<div class="input-form__wrapper">
+											<input type="text" placeholder="Фамилия" />
+											<span class="form-filled__warning">Ошибка</span>
+										</div>
+									</div>
+									<div class="form-filled__bottom">
+										<div class="input-form__wrapper">
+											<input type="email" placeholder="Почта" />
+											<span class="form-filled__warning">Ошибка</span>
+										</div>
+										<div class="input-form__wrapper">
+											<input type="tel" placeholder="Телефон" />
+											<span class="form-filled__warning">Ошибка</span>
+										</div>
+										<div class="input-form__wrapper">
+											<input type="text" placeholder="ИНН" />
+											<span class="form-filled__hint">
+												Для таможенного оформления
+											</span>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -481,6 +519,9 @@
 					</aside>
 				</div>
 			</main>
+			<footer class="footer">
+				<span class="footer__copyright">© 2022 ООО «Товары и точка»</span>
+			</footer>
 		</div>
 		<script src="js/script.js"></script>
 	</body>
