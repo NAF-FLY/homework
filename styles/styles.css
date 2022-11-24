@@ -193,14 +193,18 @@
 
 /* прячем input checkbox */
 input[type='checkbox'] {
-	display: none;
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
 }
 
 /* стили для метки */
-label {
+.item-card label {
+	display: flex;
+	align-items: center;
+	height: 100%;
 	color: #000;
 	line-height: 24px;
-	vertical-align: middle;
 	user-select: none;
 }
 
@@ -222,7 +226,7 @@ label:before {
 
 /* вариации внешнего вида в зависимости от статуса checkbox */
 /* checked */
-input:checked + label:before {
+input:checked + label::before {
 	content: url(/assets/images/icons/check.svg);
 	background: center var(--text-magenta);
 	border: none;
@@ -252,6 +256,8 @@ input:checked + label:before {
 }
 
 .item-card {
+	position: relative;
+	width: 100%;
 	display: flex;
 	align-items: flex-start;
 }
@@ -274,9 +280,7 @@ input:checked + label:before {
 
 .item-card__info-detail {
 	display: flex;
-	max-width: 226px;
-	width: 100%;
-	justify-content: space-between;
+	margin-right: 32px;
 }
 
 .info__title {
@@ -298,6 +302,10 @@ input:checked + label:before {
 	font-size: 13px;
 	line-height: 16px;
 	color: #a0a0a4;
+}
+
+.info-detail__price-mobile {
+	display: none;
 }
 
 .extra__wrapper {
@@ -340,7 +348,7 @@ input::-webkit-inner-spin-button {
 
 .info-detail__count {
 	display: flex;
-	max-width: 100px;
+	margin-right: 32px;
 	flex-direction: column;
 	gap: 8px;
 }
@@ -391,6 +399,7 @@ input::-webkit-inner-spin-button {
 .price__no-discount {
 	text-decoration: line-through;
 	border-bottom: 1.2px dashed;
+	white-space: nowrap;
 }
 
 .aside__total {
@@ -405,10 +414,13 @@ input::-webkit-inner-spin-button {
 	padding: 16px 24px 24px 24px;
 	box-shadow: 0px 2px 10px rgb(0 0 0 / 15%), 0px 0px 1px rgb(0 0 0 / 30%);
 	border-radius: 16px;
+	z-index: 1;
 }
 
-.accordion .contentBx {
+.accordion .contentBx,
+.contentBx-missing {
 	position: relative;
+	margin-bottom: 40px;
 }
 
 .accordion .contentBx .list-items__checkbox-all,
@@ -427,7 +439,7 @@ input::-webkit-inner-spin-button {
 
 .accordion .contentBx.active .content,
 .accordion .contentBx-missing.active .content {
-	height: 500px;
+	height: min-content;
 }
 
 .checkbox-all__arrow-icon {
@@ -494,6 +506,7 @@ input::-webkit-inner-spin-button {
 	background: #f6f6fa;
 	gap: 8px;
 	padding: 8px 8px 12px;
+	border-radius: 8px;
 }
 
 .detail-free__text {
@@ -772,6 +785,7 @@ input:checked + label.confirmation-rule__label:before {
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 14px;
+	opacity: 0;
 	color: #f55123;
 }
 
@@ -784,6 +798,7 @@ input:checked + label.confirmation-rule__label:before {
 
 .form-filled__hint {
 	color: var(--text-black);
+	opacity: 1;
 }
 
 .footer {
@@ -810,4 +825,8 @@ input:checked + label.confirmation-rule__label:before {
 	font-size: 13px;
 	line-height: 16px;
 	color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-menu {
+	display: none;
 }
