@@ -362,8 +362,7 @@ input::-webkit-inner-spin-button {
 .info-detail__price {
 	display: flex;
 	flex-direction: column;
-	max-width: 120px;
-	width: 100%;
+	width: 110px;
 	align-items: end;
 	text-align: end;
 }
@@ -372,7 +371,12 @@ input::-webkit-inner-spin-button {
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 28px;
-	white-space: nowrap;
+}
+
+.price__discount-large {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 28px;
 }
 
 .price__discount .symbol {
