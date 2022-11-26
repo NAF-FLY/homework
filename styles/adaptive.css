@@ -7,6 +7,9 @@
 	.cart-info {
 		width: 65%;
 	}
+	.item-card {
+		width: 397px;
+	}
 }
 
 @media (max-width: 1023.98px) {

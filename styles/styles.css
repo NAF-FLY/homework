@@ -258,7 +258,8 @@ input:checked + label::before {
 
 .item-card {
 	position: relative;
-	width: 397px;
+	max-width: 800px;
+	width: 80%;
 	display: flex;
 	align-items: flex-start;
 }
@@ -389,6 +390,7 @@ input::-webkit-inner-spin-button {
 
 .price__no-discount-wrapper {
 	display: inline-flex;
+	position: relative;
 	gap: 4px;
 	font-weight: 400;
 	font-size: 13px;
@@ -397,6 +399,7 @@ input::-webkit-inner-spin-button {
 	text-decoration: line-through;
 	border-bottom: 1.2px dashed;
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 .aside__total {
@@ -917,10 +920,6 @@ input:checked + label.confirmation-rule__label:before {
 	line-height: 16px;
 }
 
-.price__no-discount-wrapper {
-	position: relative;
-}
-
 .no-discount__hint {
 	position: absolute;
 	display: none;
@@ -953,6 +952,204 @@ input:checked + label.confirmation-rule__label:before {
 
 .hint__col:last-child {
 	color: var(--text-black);
+}
+
+.label-counter {
+	position: absolute;
+	top: -8px;
+	right: 9px;
+	width: 17px;
+	height: 17px;
+	background: #f55123;
+	border-radius: 16px;
+	display: none;
+	align-content: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 18px;
+}
+
+.popup-header {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.background-popup,
+.background-popup__delivery {
+	display: none;
+	background: rgba(5, 0, 10, 0.3);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	top: 0;
+	left: 0;
+}
+
+.wrapper__popup-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.payment-method__popup,
+.delivery__popup {
+	position: absolute;
+	padding: 16px 22px 24px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 400px;
+	height: 406px;
+	background: var(--white);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 16px;
+}
+
+.delivery__popup {
+	width: 500px;
+}
+.card-wrapper__item input[type='radio'],
+.address-wrapper__item input[type='radio'] {
+	display: none;
+}
+
+.card-wrapper__item label {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 4px;
+	position: relative;
+	padding-left: 25px;
+	line-height: 18px;
+	user-select: none;
+}
+
+.address-wrapper__item label {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 4px;
+	position: relative;
+	padding-left: 25px;
+	padding-bottom: 2px;
+	line-height: 18px;
+	user-select: none;
+	width: 400px;
+}
+
+.card-wrapper__item label:before,
+.address-wrapper__item label:before {
+	content: '';
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 0;
+	bottom: 4px;
+	border-radius: 100%;
+}
+
+/* Checked */
+.card-wrapper__item input[type='radio']:checked + label:before,
+.address-wrapper__item input[type='radio']:checked + label:before {
+	content: url(/assets/images/icons/dot.svg);
+	display: flex;
+	padding-bottom: 5.5px;
+	border: none;
+}
+
+.address-wrapper__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.popup-select__card-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.popup-delivery__address-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.popup-delivery__address-wrapper p {
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.wrapper__popup-select {
+	margin-top: 13px;
+	margin-bottom: 16px;
+}
+
+.close-btn,
+.popup__select-btn {
+	cursor: pointer;
+}
+
+.popup__select-btn {
+	position: absolute;
+	bottom: 24px;
+	padding: 10px 48px 12px;
+	background: var(--text-magenta);
+	color: var(--white);
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+	border-radius: 8px;
+}
+
+.method-card img,
+.detail-delivery img {
+	cursor: pointer;
+}
+
+.select-card,
+.select-address {
+	cursor: pointer;
+}
+
+.wrapper__popup-choose {
+	display: flex;
+	justify-content: center;
+	margin-top: 13px;
+	margin-bottom: 24px;
+	gap: 8px;
+}
+
+.wrapper__popup-select .popup-select__card-wrapper {
+	margin-top: 24px;
+}
+
+.choose-btn {
+	max-width: 224px;
+	width: 100%;
+	padding-top: 9px;
+	padding-bottom: 11px;
+	border-radius: 20px;
+	border: 2px solid var(--text-magenta);
+}
+
+.choose-btn:first-child {
+	border: 2px solid rgba(203, 17, 171, 0.15);
+}
+
+.address-wrapper__item div svg path {
+	fill: #8a898e;
+}
+
+.address-wrapper__item div:hover svg path {
+	fill: #f55123;
+}
+
+.address-wrapper__item div:hover {
+	cursor: pointer;
 }
 
 @keyframes fade-in {

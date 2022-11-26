@@ -66,6 +66,43 @@ function checkedConfirm() {
 	}
 }
 
+closeBtn.forEach(el => {
+	el.addEventListener('click', () => {
+		popupWrapper.style.display = 'none'
+		popupWrapperDeliver.style.display = 'none'
+	})
+})
+
+selectCard.forEach(el => {
+	el.addEventListener('click', () => {
+		popupWrapper.style.display = 'block'
+	})
+})
+
+selectAddress.forEach(el => {
+	el.addEventListener('click', () => {
+		popupWrapperDeliver.style.display = 'block'
+	})
+})
+
+function checkedCart() {
+	let counterCheckbox = 0
+
+	checkboxes.forEach(isCheck => {
+		if (isCheck.checked == true) {
+			counterCheckbox++
+		}
+	})
+
+	counterCheckbox > 0
+		? (labelCart.style.display = 'grid')
+		: (labelCart.style.display = 'none')
+
+	labelCart.innerText = counterCheckbox
+}
+
+checkedCart()
+
 function prettify(number) {
 	return number
 		.toString()
@@ -198,7 +235,6 @@ function checkedItems() {
 	) {
 		allCheckbox.checked = true
 	}
-
 	totalSum.innerText = prettify(countPrice1 + countPrice2 + countPrice3)
 	totalSumNoDiscount[0].innerText =
 		prettify(countPriceNo1 + countPriceNo2 + countPriceNo3) + ' сом'
@@ -207,7 +243,9 @@ function checkedItems() {
 			parseInt(totalSum.textContent.replace(/\s/g, '')) -
 				parseInt(totalSumNoDiscount[0].textContent.replace(/\s/g, ''))
 		) + ' cом'
+
 	checkedConfirm()
+	checkedCart()
 }
 
 allCheckbox.addEventListener('click', function () {

@@ -9,7 +9,8 @@ const allCheckbox = document.getElementById('checkbox-id'),
 	checkbox1 = document.getElementById('item1'),
 	checkbox2 = document.getElementById('item2'),
 	checkbox3 = document.getElementById('item3'),
-	confirmingCheckbox = document.getElementById('confirming')
+	checkboxes = document.querySelectorAll('.checkbox')
+confirmingCheckbox = document.getElementById('confirming')
 
 const orderBtn = document.querySelector('.order-btn')
 
@@ -39,3 +40,13 @@ const totalSum = document.querySelector('.main-price'),
 const inputValue1 = document.querySelector('.input-quantity1'),
 	inputValue2 = document.querySelector('.input-quantity2'),
 	inputValue3 = document.querySelector('.input-quantity3')
+
+// Cart
+const labelCart = document.querySelector('.label-counter')
+
+// Close popup
+const closeBtn = document.querySelectorAll('.close-btn'),
+	popupWrapper = document.querySelector('.background-popup'),
+	popupWrapperDeliver = document.querySelector('.background-popup__delivery'),
+	selectCard = document.querySelectorAll('.select-card'),
+	selectAddress = document.querySelectorAll('.select-address')
