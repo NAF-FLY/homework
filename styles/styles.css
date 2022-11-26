@@ -309,6 +309,7 @@ input:checked + label::before {
 }
 
 .extra__wrapper {
+	position: relative;
 	margin-top: -4px;
 	display: flex;
 	align-items: center;
@@ -429,7 +430,6 @@ input::-webkit-inner-spin-button {
 .accordion .contentBx-missing .content {
 	position: relative;
 	height: 0;
-	overflow: hidden;
 	transition: 0.5s;
 }
 
@@ -832,4 +832,43 @@ input:checked + label.confirmation-rule__label:before {
 
 .mobile-menu {
 	display: none;
+}
+
+.extra__hint {
+	width: 280px;
+	display: none;
+	position: absolute;
+	top: 24px;
+	left: 2px;
+	z-index: 2;
+}
+
+.hint-text__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 11px 16px 13px;
+	background: var(--white);
+	border-radius: 8px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+.hint-wrapper:hover .extra__hint {
+	display: block;
+}
+
+.hint-img {
+	cursor: pointer;
+}
+
+.hint-text__wrapper p {
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.hint-text__wrapper span {
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
 }
