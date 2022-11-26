@@ -21,6 +21,7 @@
 
 	.detail-free {
 		justify-content: start;
+		align-items: center;
 	}
 
 	.aside__total {
@@ -167,6 +168,23 @@
 	.total__order {
 		margin-top: 8px;
 	}
+
+	.detail-free__hint {
+		top: 22px;
+		left: 165px;
+	}
+}
+
+@media (max-width: 549.98px) {
+	.detail-free__hint {
+		top: 38px;
+		left: -43px;
+	}
+
+	.detail-free__hint1 {
+		top: 38px;
+		left: -42px;
+	}
 }
 
 @media (max-width: 479.98px) {
@@ -232,11 +250,20 @@
 	.detail-info__heading:not(:first-child) {
 		margin-top: 16px;
 	}
+
+	.item-card {
+		width: auto;
+	}
 }
 
 @media (max-width: 359.98px) {
 	.mobile-menu__wrapper img {
 		width: 28px;
+	}
+
+	.detail-free__hint {
+		top: 38px;
+		left: -43px;
 	}
 
 	.mobile-menu__wrapper {

@@ -258,7 +258,7 @@ input:checked + label::before {
 
 .item-card {
 	position: relative;
-	width: 100%;
+	width: 397px;
 	display: flex;
 	align-items: flex-start;
 }
@@ -277,6 +277,7 @@ input:checked + label::before {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	margin-right: 25px;
 }
 
 .item-card__info-detail {
@@ -518,6 +519,7 @@ input::-webkit-inner-spin-button {
 }
 
 .detail-free__text {
+	position: relative;
 	text-align: start;
 	font-size: 13px;
 	line-height: 16px;
@@ -526,6 +528,38 @@ input::-webkit-inner-spin-button {
 .detail-free__text span {
 	color: #0cb477;
 	border-bottom: 1px dashed rgba(12, 180, 119, 0.2);
+	cursor: pointer;
+}
+
+.detail-free__hint,
+.detail-free__hint1 {
+	display: none;
+	width: 288px;
+	position: absolute;
+	padding: 10px 16px 14px;
+	background: var(--white);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+	z-index: 2;
+}
+
+.detail-free__hint {
+	top: 38px;
+	left: -54px;
+}
+
+.detail-free__hint1 {
+	top: 22px;
+	right: -112px;
+}
+
+.hint-free__wrapper {
+	display: contents;
+}
+
+.hint-free__wrapper:hover .detail-free__hint,
+.hint-free__wrapper:hover .detail-free__hint1 {
+	display: block;
 }
 
 .detail-delivery__second-text {
@@ -804,6 +838,10 @@ input:checked + label.confirmation-rule__label:before {
 	gap: 4px;
 }
 
+.input-form__wrapper input {
+	width: inherit;
+}
+
 .form-filled__hint {
 	color: var(--text-black);
 	opacity: 1;
@@ -877,6 +915,44 @@ input:checked + label.confirmation-rule__label:before {
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 16px;
+}
+
+.price__no-discount-wrapper {
+	position: relative;
+}
+
+.no-discount__hint {
+	position: absolute;
+	display: none;
+	justify-content: flex-start;
+	width: 235px;
+	gap: 8px;
+	top: 22px;
+	right: 0;
+	padding: 11px 16px 13px;
+	background: var(--white);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+}
+
+.price__no-discount-wrapper:hover .no-discount__hint {
+	display: flex;
+}
+
+.hint__col {
+	display: flex;
+	flex-direction: column;
+	font-size: 13px;
+	line-height: 16px;
+	justify-content: space-between;
+}
+
+.hint__col:first-child {
+	text-align: start;
+}
+
+.hint__col:last-child {
+	color: var(--text-black);
 }
 
 @keyframes fade-in {

@@ -54,13 +54,25 @@ let priceChangeNo1 = parseInt(priceNo1[0].textContent),
 	priceChangeNo3 = parseInt(priceNo3[0].textContent)
 /**********************************/
 
-listItems.addEventListener('click', amountOfMoney)
+confirmingCheckbox.addEventListener('click', checkedConfirm)
+
+function checkedConfirm() {
+	if (confirmingCheckbox.checked) {
+		orderBtn.innerText = 'Оплатить ' + totalSum.textContent + ' сом'
+	}
+
+	if (!confirmingCheckbox.checked) {
+		orderBtn.innerText = 'Заказать'
+	}
+}
 
 function prettify(number) {
 	return number
 		.toString()
 		.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, '$1' + ' ')
 }
+
+listItems.addEventListener('click', amountOfMoney)
 
 function amountOfMoney(e) {
 	let target = e.target
@@ -149,6 +161,7 @@ function amountOfMoney(e) {
 		}
 	}
 	checkedItems()
+	checkedConfirm()
 }
 
 listItems.addEventListener('input', checkedItems)
@@ -194,6 +207,7 @@ function checkedItems() {
 			parseInt(totalSum.textContent.replace(/\s/g, '')) -
 				parseInt(totalSumNoDiscount[0].textContent.replace(/\s/g, ''))
 		) + ' cом'
+	checkedConfirm()
 }
 
 allCheckbox.addEventListener('click', function () {

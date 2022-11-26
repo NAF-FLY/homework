@@ -8,7 +8,10 @@ const btnShowCart = document.querySelector('.list-items__checkbox-all'),
 const allCheckbox = document.getElementById('checkbox-id'),
 	checkbox1 = document.getElementById('item1'),
 	checkbox2 = document.getElementById('item2'),
-	checkbox3 = document.getElementById('item3')
+	checkbox3 = document.getElementById('item3'),
+	confirmingCheckbox = document.getElementById('confirming')
+
+const orderBtn = document.querySelector('.order-btn')
 
 /* Prices */
 // watch to click events on cards of product
