@@ -23,20 +23,36 @@ function handler(e) {
 	}
 }
 
-let arrayPrice = []
+let arrayPrice = [],
+	arrayPriceNoDiscount = []
 
+/**** price_discount per piece ****/
 priceItems.forEach(el =>
 	arrayPrice.push(parseInt(el.innerHTML.replace(/\s/g, '')))
 )
 
-// price per piece
-const step1 = arrayPrice[0] / 2,
+const step1 = arrayPrice[0],
 	step2 = Math.round(arrayPrice[2] / 200),
 	step3 = arrayPrice[4] / 2
 
 let priceChange1 = parseInt(price1[0].textContent),
 	priceChange2 = parseInt(price2[0].textContent.replace(/\s/g, '')),
 	priceChange3 = parseInt(price3[0].textContent)
+/**********************************/
+
+/**** price_nodiscount per piece ****/
+priceItemsNoDiscount.forEach(el =>
+	arrayPriceNoDiscount.push(parseInt(el.innerHTML.replace(/\s/g, '')))
+)
+
+const stepPrice1 = arrayPriceNoDiscount[0],
+	stepPrice2 = Math.round(arrayPriceNoDiscount[2] / 200),
+	stepPrice3 = arrayPriceNoDiscount[4] / 2
+
+let priceChangeNo1 = parseInt(priceNo1[0].textContent),
+	priceChangeNo2 = parseInt(priceNo2[0].textContent.replace(/\s/g, '')),
+	priceChangeNo3 = parseInt(priceNo3[0].textContent)
+/**********************************/
 
 listItems.addEventListener('click', amountOfMoney)
 
@@ -57,6 +73,9 @@ function amountOfMoney(e) {
 					priceChange1 += step1
 					price1[0].innerText = prettify(priceChange1)
 					price1[1].innerText = prettify(priceChange1)
+					priceChangeNo1 += stepPrice1
+					priceNo1[0].innerText = prettify(priceChangeNo1)
+					priceNo1[1].innerText = prettify(priceChangeNo1)
 				}
 				break
 			}
@@ -65,6 +84,9 @@ function amountOfMoney(e) {
 				priceChange2 += step2
 				price2[0].innerText = prettify(priceChange2)
 				price2[1].innerText = prettify(priceChange2)
+				priceChangeNo2 += stepPrice2
+				priceNo2[0].innerText = prettify(priceChangeNo2)
+				priceNo2[1].innerText = prettify(priceChangeNo2)
 				break
 			}
 			case 'item13': {
@@ -73,6 +95,9 @@ function amountOfMoney(e) {
 					priceChange3 += step3
 					price3[0].innerText = prettify(priceChange3)
 					price3[1].innerText = prettify(priceChange3)
+					priceChangeNo3 += stepPrice3
+					priceNo3[0].innerText = prettify(priceChangeNo3)
+					priceNo3[1].innerText = prettify(priceChangeNo3)
 				}
 				break
 			}
@@ -88,6 +113,9 @@ function amountOfMoney(e) {
 					priceChange1 -= step1
 					price1[0].innerText = prettify(priceChange1)
 					price1[1].innerText = prettify(priceChange1)
+					priceChangeNo1 -= stepPrice1
+					priceNo1[0].innerText = prettify(priceChangeNo1)
+					priceNo1[1].innerText = prettify(priceChangeNo1)
 				}
 				break
 			}
@@ -97,6 +125,9 @@ function amountOfMoney(e) {
 					priceChange2 -= step2
 					price2[0].innerText = prettify(priceChange2)
 					price2[1].innerText = prettify(priceChange2)
+					priceChangeNo2 -= stepPrice2
+					priceNo2[0].innerText = prettify(priceChangeNo2)
+					priceNo2[1].innerText = prettify(priceChangeNo2)
 				}
 				break
 			}
@@ -106,6 +137,9 @@ function amountOfMoney(e) {
 					priceChange3 -= step3
 					price3[0].innerText = prettify(priceChange3)
 					price3[1].innerText = prettify(priceChange3)
+					priceChangeNo3 -= stepPrice3
+					priceNo3[0].innerText = prettify(priceChangeNo3)
+					priceNo3[1].innerText = prettify(priceChangeNo3)
 				}
 				break
 			}
@@ -134,6 +168,10 @@ function checkedItems() {
 		countPrice2 = checkbox2.checked ? priceChange2 : 0,
 		countPrice3 = checkbox3.checked ? priceChange3 : 0
 
+	let countPriceNo1 = checkbox1.checked ? priceChangeNo1 : 0,
+		countPriceNo2 = checkbox2.checked ? priceChangeNo2 : 0,
+		countPriceNo3 = checkbox3.checked ? priceChangeNo3 : 0
+
 	if (
 		checkbox1.checked == false &&
 		checkbox2.checked == false &&
@@ -149,6 +187,13 @@ function checkedItems() {
 	}
 
 	totalSum.innerText = prettify(countPrice1 + countPrice2 + countPrice3)
+	totalSumNoDiscount[0].innerText =
+		prettify(countPriceNo1 + countPriceNo2 + countPriceNo3) + ' сом'
+	totalDiscount[0].innerText =
+		prettify(
+			parseInt(totalSum.textContent.replace(/\s/g, '')) -
+				parseInt(totalSumNoDiscount[0].textContent.replace(/\s/g, ''))
+		) + ' cом'
 }
 
 allCheckbox.addEventListener('click', function () {

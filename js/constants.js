@@ -16,13 +16,21 @@ let listItems = document.querySelector('.list-items__main')
 
 // array of prices
 const priceItems = document.querySelectorAll('.price')
+const priceItemsNoDiscount = document.querySelectorAll('.price__no-discount')
 
 // price for a certain for a certain product
 const price1 = document.querySelectorAll('.price.price1'),
 	price2 = document.querySelectorAll('.price.price2'),
 	price3 = document.querySelectorAll('.price.price3')
 
-const totalSum = document.querySelector('.main-price')
+const priceNo1 = document.querySelectorAll('.price__no-discount.price1'),
+	priceNo2 = document.querySelectorAll('.price__no-discount.price2'),
+	priceNo3 = document.querySelectorAll('.price__no-discount.price3')
+
+// all calculations for the order block
+const totalSum = document.querySelector('.main-price'),
+	totalSumNoDiscount = document.querySelectorAll('.detail-text.nodiscount'),
+	totalDiscount = document.querySelectorAll('.detail-text.size-discount')
 
 // input value for product
 const inputValue1 = document.querySelector('.input-quantity1'),
