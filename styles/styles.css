@@ -463,10 +463,17 @@ input::-webkit-inner-spin-button {
 	font-size: 24px;
 	line-height: 32px;
 	letter-spacing: -0.01em;
+	white-space: nowrap;
 }
 
 .detail-text {
 	line-height: 24px;
+}
+
+.detail-main-sum {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 4px;
 }
 
 .detail-main-sum span {
