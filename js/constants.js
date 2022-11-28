@@ -12,7 +12,7 @@ const allCheckbox = document.getElementById('checkbox-id'),
 	checkbox2 = document.getElementById('item2'),
 	checkbox3 = document.getElementById('item3'),
 	confirmingCheckbox = document.getElementById('confirming'),
-	checkboxes = document.querySelectorAll('.checkbox')
+	checkboxes = document.getElementsByClassName('checkbox')
 
 const orderBtn = document.querySelector('.order-btn'),
 	deleteBtn = document.getElementsByClassName('icon-delete'),

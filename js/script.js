@@ -99,19 +99,23 @@ function checkedConfirm() {
 	}
 }
 
-closeBtn.forEach(el => {
-	el.addEventListener('click', () => {
-		popupWrapper.style.display = 'none'
-		popupWrapperDeliver.style.display = 'none'
-	})
-})
+document
+	.getElementsByClassName('form__counter')[0]
+	.querySelector('.btn-minus').style.opacity = 0.2
+document
+	.getElementsByClassName('form__counter')[2]
+	.querySelector('.btn-plus').style.opacity = 0.2
 
-selectBtn.forEach(el => {
-	el.addEventListener('click', () => {
-		popupWrapper.style.display = 'none'
-		popupWrapperDeliver.style.display = 'none'
-	})
-})
+const hideBtns = [closeBtn, selectBtn]
+
+for (let i = 0; i < hideBtns.length; i++) {
+	hideBtns[i].forEach(btn =>
+		btn.addEventListener('click', () => {
+			popupWrapper.style.display = 'none'
+			popupWrapperDeliver.style.display = 'none'
+		})
+	)
+}
 
 selectCard.forEach(el => {
 	el.addEventListener('click', () => {
@@ -128,11 +132,12 @@ selectAddress.forEach(el => {
 function checkedCart() {
 	let counterCheckbox = 0
 
-	checkboxes.forEach(isCheck => {
-		if (isCheck.checked == true) {
+	for (let i = 0; i < checkboxes.length; i++) {
+		if (checkboxes[i].checked == true) {
 			counterCheckbox++
 		}
-	})
+	}
+
 	counterCheckbox > 0
 		? labelCart.forEach(el => (el.style.display = 'grid'))
 		: labelCart.forEach(el => (el.style.display = 'none'))
@@ -182,7 +187,6 @@ function deleteItem() {
 	}
 
 	missingText.innerText = `Отсутствуют · ${value} ${nplural(value)}`
-	allCheckbox.checked = true
 	checkedItems()
 }
 
@@ -194,6 +198,7 @@ listItems.forEach(list => {
 
 function amountOfMoney(e) {
 	deleteItem()
+
 	let target = e.target
 	if (target.className == 'btn-plus') {
 		switch (target.parentElement.id) {
@@ -206,6 +211,12 @@ function amountOfMoney(e) {
 					priceChangeNo1 += stepPrice1
 					priceNo1[0].innerText = prettify(priceChangeNo1)
 					priceNo1[1].innerText = prettify(priceChangeNo1)
+					document
+						.getElementsByClassName('form__counter')[0]
+						.querySelector('.btn-minus').style.opacity = 1
+					document
+						.getElementsByClassName('form__counter')[0]
+						.querySelector('.btn-plus').style.opacity = 0.2
 				}
 				break
 			}
@@ -228,6 +239,12 @@ function amountOfMoney(e) {
 					priceChangeNo3 += stepPrice3
 					priceNo3[0].innerText = prettify(priceChangeNo3)
 					priceNo3[1].innerText = prettify(priceChangeNo3)
+					document
+						.getElementsByClassName('form__counter')[2]
+						.querySelector('.btn-minus').style.opacity = 1
+					document
+						.getElementsByClassName('form__counter')[2]
+						.querySelector('.btn-plus').style.opacity = 0.2
 				}
 				break
 			}
@@ -246,6 +263,12 @@ function amountOfMoney(e) {
 					priceChangeNo1 -= stepPrice1
 					priceNo1[0].innerText = prettify(priceChangeNo1)
 					priceNo1[1].innerText = prettify(priceChangeNo1)
+					document
+						.getElementsByClassName('form__counter')[0]
+						.querySelector('.btn-minus').style.opacity = 0.2
+					document
+						.getElementsByClassName('form__counter')[0]
+						.querySelector('.btn-plus').style.opacity = 1
 				}
 				break
 			}
@@ -270,6 +293,12 @@ function amountOfMoney(e) {
 					priceChangeNo3 -= stepPrice3
 					priceNo3[0].innerText = prettify(priceChangeNo3)
 					priceNo3[1].innerText = prettify(priceChangeNo3)
+					document
+						.getElementsByClassName('form__counter')[2]
+						.querySelector('.btn-minus').style.opacity = 0.2
+					document
+						.getElementsByClassName('form__counter')[2]
+						.querySelector('.btn-plus').style.opacity = 1
 				}
 				break
 			}
@@ -296,18 +325,16 @@ function checkedItems() {
 		countPriceNo2 = checkbox2.checked ? priceChangeNo2 : 0,
 		countPriceNo3 = checkbox3.checked ? priceChangeNo3 : 0
 
-	if (
-		checkbox1.checked == false ||
-		checkbox2.checked == false ||
-		checkbox3.checked == false
-	) {
-		allCheckbox.checked = false
-	} else if (
-		checkbox1.checked == true &&
-		checkbox2.checked == true &&
-		checkbox3.checked == true
-	) {
-		allCheckbox.checked = true
+	for (let i = 0; i < checkboxes.length; i++) {
+		if (checkboxes[i].checked) {
+			allCheckbox.checked = true
+		}
+	}
+
+	for (let i = 0; i < checkboxes.length; i++) {
+		if (!checkboxes[i].checked) {
+			allCheckbox.checked = false
+		}
 	}
 
 	totalSum.innerText = prettify(countPrice1 + countPrice2 + countPrice3)
@@ -327,15 +354,14 @@ function checkedItems() {
 
 allCheckbox.addEventListener('click', function () {
 	if (this.checked) {
-		checkbox1.checked = true
-		checkbox2.checked = true
-		checkbox3.checked = true
+		for (let i = 0; i < checkboxes.length; i++) {
+			checkboxes[i].checked = true
+		}
 	} else {
-		checkbox1.checked = false
-		checkbox2.checked = false
-		checkbox3.checked = false
+		for (let i = 0; i < checkboxes.length; i++) {
+			checkboxes[i].checked = false
+		}
 	}
 
 	checkedItems()
-	deleteItem()
 })
