@@ -61,23 +61,16 @@ function nplural(int, array) {
 popupWrapperDeliver.addEventListener('input', checkAddress)
 
 function checkAddress(e) {
-	let target = e.target
-	let isClicked = e.currentTarget
+	let address = e.target.value
 
-	let address = ''
-
-	if (target.id == 'address1') {
-		address = e.currentTarget.getElementsByTagName('label')[0].innerText
-	} else if (target.id == 'address2') {
-		address = e.currentTarget.getElementsByTagName('label')[1].innerText
-	} else if (target.id == 'address3') {
-		address = e.currentTarget.getElementsByTagName('label')[2].innerText
-	}
-
-	isClicked.getElementsByTagName('button')[2].onclick = function () {
-		addressText.innerText = address
-		addressSubText.innerText = address
-	}
+	selectBtn.forEach(el => {
+		el.addEventListener('click', () => {
+			popupWrapper.style.display = 'none'
+			popupWrapperDeliver.style.display = 'none'
+			addressText.innerText = address
+			addressSubText.innerText = address
+		})
+	})
 }
 
 popupWrapper.addEventListener('input', checkCard)
@@ -146,7 +139,10 @@ function checkedCart() {
 
 	labelCart.forEach(el => (el.innerText = counterCheckbox))
 	countProduct.innerText = counterCheckbox + ' ' + nplural(counterCheckbox)
-	valueAllProduct = childElementCount.length
+	valueAllProduct =
+		parseInt(inputValue1.value) +
+		parseInt(inputValue2.value) +
+		parseInt(inputValue3.value)
 }
 
 checkedCart()

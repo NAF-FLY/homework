@@ -15,7 +15,8 @@ const allCheckbox = document.getElementById('checkbox-id'),
 	checkboxes = document.querySelectorAll('.checkbox')
 
 const orderBtn = document.querySelector('.order-btn'),
-	deleteBtn = document.getElementsByClassName('icon-delete')
+	deleteBtn = document.getElementsByClassName('icon-delete'),
+	deleteAddressBtn = document.getElementsByClassName('icon-delete__address')
 
 const deleteBtn1 = document.getElementsByClassName('icon-delete gray-icon')
 

@@ -216,10 +216,6 @@
 		line-height: 16px;
 	}
 
-	.popup-delivery__address-wrapper {
-		gap: 8px;
-	}
-
 	.delivery__popup .wrapper__popup-select {
 		height: 82%;
 	}

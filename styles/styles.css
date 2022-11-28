@@ -618,6 +618,7 @@ input::-webkit-inner-spin-button {
 .confirmation-label,
 .confirmation-text {
 	font-size: 13px;
+	user-select: none;
 }
 
 .order-btn {
@@ -690,7 +691,8 @@ input:checked + label.confirmation-rule__label:before {
 }
 
 .icon-like,
-.icon-delete {
+.icon-delete,
+.icon-delete__address {
 	background-color: #000;
 	height: 20px;
 	width: 20px;
@@ -703,7 +705,8 @@ input:checked + label.confirmation-rule__label:before {
 	mask: url(../assets/images/icons/like.svg) no-repeat center;
 }
 
-.icon-delete {
+.icon-delete,
+.icon-delete__address {
 	-webkit-mask: url(../assets/images/icons/delete.svg) no-repeat center;
 	mask: url(../assets/images/icons/delete.svg) no-repeat center;
 }
@@ -1073,11 +1076,9 @@ input:checked + label.confirmation-rule__label:before {
 	padding-bottom: 2px;
 	line-height: 18px;
 	user-select: none;
-	width: 400px;
 }
 
-.card-wrapper__item label:before,
-.address-wrapper__item label:before {
+.card-wrapper__item label:before {
 	content: '';
 	display: inline-block;
 	width: 16px;
@@ -1085,6 +1086,17 @@ input:checked + label.confirmation-rule__label:before {
 	position: absolute;
 	left: 0;
 	bottom: 4px;
+	border-radius: 100%;
+}
+
+.address-wrapper__item label:before {
+	content: '';
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 2px;
+	left: 0;
 	border-radius: 100%;
 }
 
@@ -1099,9 +1111,21 @@ input:checked + label.confirmation-rule__label:before {
 
 .address-wrapper__item {
 	display: flex;
-	align-items: center;
+	width: 100%;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8px;
 	justify-content: space-between;
 }
+
+.checkbox-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	gap: 8px;
+}
+
 .popup-select__card-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -1111,7 +1135,47 @@ input:checked + label.confirmation-rule__label:before {
 .popup-delivery__address-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	width: 100%;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.checkbox-wrapper label {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+
+.checkbox-wrapper div {
+	display: flex;
+	gap: 8px;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.checkbox-wrapper div span {
+	color: #a0a0a4;
+}
+
+.checkbox-wrapper div img {
+	margin-right: -4px;
+}
+
+.delete-button__img .icon-delete__address {
+	background: #a0a0a4;
+}
+
+.delete-button__img .icon-delete__address:hover {
+	background: var(--text-magenta);
+}
+
+.choose-btn:hover {
+	border: 2px solid #cb11ab;
+}
+
+.choose-btn.active {
+	border: 2px solid #cb11ab;
 }
 
 .popup-delivery__address-wrapper p {
@@ -1135,6 +1199,14 @@ input:checked + label.confirmation-rule__label:before {
 	background: #e52bc3;
 }
 
+#delivery-couriers {
+	gap: 16px;
+}
+
+#delivery-couriers p {
+	margin-bottom: -8px;
+}
+
 .popup__select-btn {
 	position: absolute;
 	bottom: 24px;
@@ -1144,6 +1216,7 @@ input:checked + label.confirmation-rule__label:before {
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 	border-radius: 8px;
 	transition: background 0.25s ease-in-out;
+	font-weight: 700;
 }
 
 .method-card img,
@@ -1174,11 +1247,11 @@ input:checked + label.confirmation-rule__label:before {
 	padding-top: 9px;
 	padding-bottom: 11px;
 	border-radius: 20px;
-	border: 2px solid var(--text-magenta);
-}
-
-.choose-btn:first-child {
 	border: 2px solid rgba(203, 17, 171, 0.15);
+	transition: border-color 0.2s ease-in-out;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
 }
 
 .address-wrapper__item div svg path {
