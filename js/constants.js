@@ -2,7 +2,8 @@
 const btnShowCart = document.querySelector('.list-items__checkbox-all'),
 	btnShowMissing = document.querySelector('.list-items__checkbox-all-missing'),
 	accordionCart = document.querySelector('.contentBx'),
-	accordionMissing = document.querySelector('.contentBx-missing')
+	accordionMissing = document.querySelector('.contentBx-missing'),
+	labelCheckboxAll = document.querySelector('.checkbox-label')
 
 /* Checkbox */
 const allCheckbox = document.getElementById('checkbox-id'),
@@ -16,11 +17,12 @@ const allCheckbox = document.getElementById('checkbox-id'),
 const orderBtn = document.querySelector('.order-btn'),
 	deleteBtn = document.getElementsByClassName('icon-delete')
 
-let deleteBtn1 = document.getElementsByClassName('icon-delete gray-icon')
+const deleteBtn1 = document.getElementsByClassName('icon-delete gray-icon')
 
 /* Prices */
 // watch to click events on cards of product
-let listItems = document.querySelectorAll('.list-items__main')
+const listItems = document.querySelectorAll('.list-items__main'),
+	childElementCount = document.getElementsByClassName('form__counter')
 
 // array of prices
 const priceItems = document.querySelectorAll('.price')
@@ -55,7 +57,7 @@ const closeBtn = document.querySelectorAll('.close-btn'),
 	popupWrapperDeliver = document.querySelector('.background-popup__delivery'),
 	selectCard = document.querySelectorAll('.select-card'),
 	selectAddress = document.querySelectorAll('.select-address'),
-	selectBtn = document.querySelector('.popup__select-btn')
+	selectBtn = document.querySelectorAll('.popup__select-btn')
 
 // Switch address
 const addressText = document.querySelector('.second-text__address'),

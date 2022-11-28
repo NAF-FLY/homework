@@ -1,5 +1,3 @@
-// Существуют разные способы получить DOM-узел; здесь мы определяем саму форму и
-// поле ввода email и элемент span, в который поместим сообщение об ошибке
 const form = document.getElementsByTagName('form')[0]
 
 const _email = document.getElementById('email'),
@@ -9,143 +7,127 @@ const _email = document.getElementById('email'),
 	_surname = document.getElementById('surname'),
 	surnameError = document.querySelector('#surname + span.form-filled__error'),
 	_tel = (document = document.querySelector('#tel')),
-	telError = document.querySelector('#tel + span.form-filled__error')
+	telError = document.querySelector('#tel + span.form-filled__error'),
+	_postCode = document.querySelector('#zip'),
+	postCodeError = document.querySelector('#zip + span.form-filled__hint')
+
+const regExp = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$/)
 
 orderBtn.addEventListener('click', () => {
-	// Если поле email валидно, позволяем форме отправляться
-
+	/****  EMAIL VALIDATION ****/
+	// If the field is valid, we allow the form to be sent
 	if (!_email.validity.valid) {
-		// Если поле email не валидно, отображаем соответствующее сообщение об ошибке
+		// If the field is not valid, we display the corresponding error message
 		showError()
-		// Затем предотвращаем стандартное событие отправки формы
-	}
-
-	if (!_name.validity.valid) {
-		// Если поле email не валидно, отображаем соответствующее сообщение об ошибке
-		showError()
-		// Затем предотвращаем стандартное событие отправки формы
-	}
-
-	if (!_surname.validity.valid) {
-		// Если поле email не валидно, отображаем соответствующее сообщение об ошибке
-		showError()
-		// Затем предотвращаем стандартное событие отправки формы
-	}
-
-	if (!_tel.validity.valid) {
-		// Если поле email не валидно, отображаем соответствующее сообщение об ошибке
-		showError()
-		// Затем предотвращаем стандартное событие отправки формы
 	}
 
 	_email.addEventListener('input', () => {
-		// Каждый раз, когда пользователь что-то вводит,
-		// мы проверяем, являются ли поля формы валидными
-
+		// Every time the user enters something,
+		// we are checking whether the form fields are valid
 		if (_email.validity.valid) {
-			// Если на момент валидации какое-то сообщение об ошибке уже отображается,
-			// если поле валидно, удаляем сообщение
-			emailError.textContent = '' // Сбросить содержимое сообщения
-			emailError.className = 'error' // Сбросить визуальное состояние сообщения
+			// if the field is valid, delete the message
+			emailError.textContent = ''
 		} else {
-			// Если поле не валидно, показываем правильную ошибку
+			// If the field is not valid, we show the correct error
 			showError()
 		}
 	})
 
+	/****  NAME VALIDATION ****/
+	if (!_name.validity.valid) {
+		showError()
+	}
 	_name.addEventListener('input', () => {
-		// Каждый раз, когда пользователь что-то вводит,
-		// мы проверяем, являются ли поля формы валидными
-
 		if (_name.validity.valid) {
-			// Если на момент валидации какое-то сообщение об ошибке уже отображается,
-			// если поле валидно, удаляем сообщение
-			nameError.textContent = '' // Сбросить содержимое сообщения
-			nameError.className = 'error' // Сбросить визуальное состояние сообщения
+			nameError.textContent = ''
 		} else {
-			// Если поле не валидно, показываем правильную ошибку
 			showError()
 		}
 	})
 
+	/****  SURNAME VALIDATION ****/
+	if (!_surname.validity.valid) {
+		showError()
+	}
 	_surname.addEventListener('input', () => {
-		// Каждый раз, когда пользователь что-то вводит,
-		// мы проверяем, являются ли поля формы валидными
-
 		if (_surname.validity.valid) {
-			// Если на момент валидации какое-то сообщение об ошибке уже отображается,
-			// если поле валидно, удаляем сообщение
-			surnameError.textContent = '' // Сбросить содержимое сообщения
-			surnameError.className = 'error' // Сбросить визуальное состояние сообщения
+			surnameError.textContent = ''
 		} else {
-			// Если поле не валидно, показываем правильную ошибку
 			showError()
 		}
 	})
 
+	/****  PHONE NUMBER VALIDATION ****/
+	if (!_tel.validity.valid) {
+		showError()
+	}
 	_tel.addEventListener('input', () => {
-		// Каждый раз, когда пользователь что-то вводит,
-		// мы проверяем, являются ли поля формы валидными
-
-		if (_tel.validity.typeMismatch) {
-			// Если на момент валидации какое-то сообщение об ошибке уже отображается,
-			// если поле валидно, удаляем сообщение
-			telError.textContent = '' // Сбросить содержимое сообщения
-			telError.className = 'error' // Сбросить визуальное состояние сообщения
+		if (regExp.test(_tel.value)) {
+			telError.textContent = ''
 		} else {
-			// Если поле не валидно, показываем правильную ошибку
+			showError()
+		}
+	})
+
+	/****  POST CODE VALIDATION ****/
+	if (!_postCode.validity.valid) {
+		showError()
+	}
+	_postCode.addEventListener('input', () => {
+		if (_postCode.validity.valid) {
+			postCodeError.style.color = '#000'
+			postCodeError.textContent = 'Для таможенного оформления'
+		} else {
 			showError()
 		}
 	})
 })
 
 function showError() {
+	/****  EMAIL VALIDATION ****/
 	if (_email.validity.valueMissing) {
 		// if input is empty
 		emailError.textContent = 'Укажите электронную почту'
 	} else if (_email.validity.typeMismatch) {
-		// Если поле содержит не email-адрес,
-		// отображаем следующее сообщение об ошибке
+		// If the field contains an invalid format
 		emailError.textContent = 'Проверьте адрес электронной почты'
 	}
-	// Задаём соответствующую стилизацию
+	// Setting the appropriate styling
 	emailError.className = 'form-filled__error active'
 
+	/****  NAME VALIDATION ****/
 	if (_name.validity.valueMissing) {
-		// if input is empty
 		nameError.textContent = 'Укажите имя'
 	} else if (!_name.validity.valid) {
-		// Если поле содержит не email-адрес,
-		// отображаем следующее сообщение об ошибке
 		nameError.textContent = 'Некорректное имя'
 	}
-	// Задаём соответствующую стилизацию
 	nameError.className = 'form-filled__error active'
 
+	/****  SURNAME VALIDATION ****/
 	if (_surname.validity.valueMissing) {
-		// if input is empty
 		surnameError.textContent = 'Укажите фамилию'
 	} else if (!_surname.validity.valid) {
-		// Если поле содержит не email-адрес,
-		// отображаем следующее сообщение об ошибке
 		surnameError.textContent = 'Некорректная фамилия'
 	}
-	// Задаём соответствующую стилизацию
 	surnameError.className = 'form-filled__error active'
 
+	/****  PHONE NUMBER VALIDATION ****/
 	if (_tel.validity.valueMissing) {
-		// if input is empty
 		telError.textContent = 'Укажите номер телефона'
-	} else if (!_tel.validity.valid) {
-		// Если поле содержит не email-адрес,
-		// отображаем следующее сообщение об ошибке
+	} else if (!regExp.test(_tel.value)) {
 		telError.textContent = 'Формат: +9 999 999 99 99'
 	}
-	// Задаём соответствующую стилизацию
 	telError.className = 'form-filled__error active'
+
+	/****  POST CODE VALIDATION ****/
+	if (!_postCode.validity.valid) {
+		postCodeError.style.color = '#f55123'
+		postCodeError.textContent = 'Формат: 1234567'
+		postCodeError.className = 'form-filled__hint active'
+	}
 }
 
-// mask for phone number
+// Mask for phone number
 ;[].forEach.call(document.querySelectorAll('#tel'), function (input) {
 	let keyCode
 	function mask(event) {

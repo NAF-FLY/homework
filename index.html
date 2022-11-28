@@ -81,7 +81,12 @@
 							<div class="list-items__checkbox-all">
 								<div class="checkbox-all__wrapper">
 									<input type="checkbox" id="checkbox-id" checked />
-									<label for="checkbox-id">Выбрать все</label>
+									<label
+										for="checkbox-id"
+										id="checkbox-id__label"
+										class="checkbox-label"
+										>Выбрать все</label
+									>
 								</div>
 								<img
 									src="assets/images/icons/arrow-icon.svg"
@@ -494,13 +499,30 @@
 									<p class="detail-info__subtext">Бесплатно</p>
 									<h3 class="detail-info__heading">5—6 февраля</h3>
 									<div class="detail-info__photo-wrapper">
-										<img src="assets/images/t-shirt.jpg" alt="t-shirt" />
-										<img src="assets/images/smartphone.jpg" alt="smartphone" />
-										<img src="assets/images/book.jpg" alt="book" />
+										<div class="photo-wrapper__item">
+											<img src="assets/images/t-shirt.jpg" alt="t-shirt" />
+										</div>
+										<div class="photo-wrapper__item">
+											<img
+												src="assets/images/smartphone.jpg"
+												alt="smartphone"
+											/>
+											<div class="label-counter__item-delivery">184</div>
+										</div>
+										<div class="photo-wrapper__item">
+											<img src="assets/images/book.jpg" alt="book" />
+											<div class="label-counter__item-delivery">2</div>
+										</div>
 									</div>
 									<h3 class="detail-info__heading">7—8 февраля</h3>
 									<div class="detail-info__photo-wrapper">
-										<img src="assets/images/smartphone.jpg" alt="smartphone" />
+										<div class="photo-wrapper__item">
+											<img
+												src="assets/images/smartphone.jpg"
+												alt="smartphone"
+											/>
+											<div class="label-counter__item-delivery">16</div>
+										</div>
 									</div>
 								</div>
 								<div class="detail-info__free">
@@ -539,7 +561,11 @@
 								<div class="registration-order__header">
 									<h2 class="detail-registration__text-main">Получатель</h2>
 								</div>
-								<form class="receiver-form__form-filled" novalidate>
+								<form
+									class="receiver-form__form-filled"
+									novalidate
+									id="receiver-form"
+								>
 									<div class="form-filled__top">
 										<div class="input-form__wrapper">
 											<input
@@ -583,7 +609,6 @@
 												type="text"
 												placeholder="Телефон"
 												id="tel"
-												pattern="[+( )]*[0-9]"
 												required
 											/>
 											<span class="form-filled__error" aria-live="polite"
@@ -591,7 +616,12 @@
 											>
 										</div>
 										<div class="input-form__wrapper">
-											<input type="text" placeholder="ИНН" />
+											<input
+												type="text"
+												placeholder="ИНН"
+												id="zip"
+												pattern="^[0-9]{7,10}$"
+											/>
 											<span class="form-filled__hint" aria-live="polite">
 												Для таможенного оформления
 											</span>
@@ -605,7 +635,7 @@
 						<div class="total-info__price">
 							<div class="price-text__detail">
 								<h2 class="detail-text-main">Итого</h2>
-								<p class="detail-text__count">4 товара</p>
+								<p class="detail-text__count">3 товара</p>
 								<p class="detail-text">Скидка</p>
 								<p class="detail-text">Доставка</p>
 							</div>
@@ -684,9 +714,16 @@
 							</div>
 						</div>
 						<div class="total__order">
-							<button class="order-btn">Заказать</button>
+							<a href="#receiver-form">
+								<button class="order-btn">Заказать</button>
+							</a>
 							<div class="checkbox-all__wrapper">
-								<input type="checkbox" id="confirm-rule-id" checked="true" />
+								<input
+									type="checkbox"
+									id="confirm-rule-id"
+									checked="true"
+									disabled
+								/>
 								<label for="confirm-rule-id" class="confirmation-rule__label">
 								</label>
 								<span class="confirmation-rule__text">
@@ -889,5 +926,6 @@
 		<script src="js/constants.js"></script>
 		<script src="js/validateForm.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/accordion.js"></script>
 	</body>
 </html>

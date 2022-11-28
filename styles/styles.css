@@ -226,10 +226,15 @@ label:before {
 
 /* вариации внешнего вида в зависимости от статуса checkbox */
 /* checked */
-input:checked + label::before {
+input:checked + label::before,
+input:checked + #checkbox-label::before {
 	content: url(/assets/images/icons/check.svg);
 	background: center var(--text-magenta);
 	border: none;
+}
+
+input:checked + .checkbox-label.hide::before {
+	display: none;
 }
 
 .list-items__checkbox-all,
@@ -625,6 +630,7 @@ input::-webkit-inner-spin-button {
 	background: var(--text-magenta);
 	color: var(--white);
 	margin-bottom: 12px;
+	transition: background 0.25s ease-in-out;
 }
 
 .confirmation-rule-label {
@@ -738,9 +744,31 @@ input:checked + label.confirmation-rule__label:before {
 }
 
 .delivery-form__detail-info {
+	position: relative;
 	display: grid;
 	grid-template-columns: minmax(110px, 155px) minmax(100px, auto);
 	gap: 16px 32px;
+}
+
+.photo-wrapper__item {
+	position: relative;
+}
+
+.label-counter__item-delivery {
+	position: absolute;
+	display: flex;
+	top: -8px;
+	right: -2px;
+	height: 18px;
+	min-width: 18px;
+	padding: 0 4px 0 3px;
+	background: #f55123;
+	border-radius: 16px;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 18px;
+	color: var(--white);
 }
 
 .detail-info__heading {
@@ -822,8 +850,7 @@ input:checked + label.confirmation-rule__label:before {
 	color: #8a898e;
 }
 
-.receiver-form__form-filled .form-filled__error,
-.form-filled__hint {
+.receiver-form__form-filled .form-filled__error {
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 14px;
@@ -833,6 +860,10 @@ input:checked + label.confirmation-rule__label:before {
 
 .form-filled__error.active {
 	opacity: 1;
+}
+
+.form-filled__hint.active {
+	color: #f55123;
 }
 
 .input-form__wrapper {
@@ -847,6 +878,9 @@ input:checked + label.confirmation-rule__label:before {
 }
 
 .form-filled__hint {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
 	color: var(--text-black);
 	opacity: 1;
 }
@@ -1096,6 +1130,11 @@ input:checked + label.confirmation-rule__label:before {
 	cursor: pointer;
 }
 
+.order-btn:hover,
+.popup__select-btn:hover {
+	background: #e52bc3;
+}
+
 .popup__select-btn {
 	position: absolute;
 	bottom: 24px;
@@ -1104,6 +1143,7 @@ input:checked + label.confirmation-rule__label:before {
 	color: var(--white);
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 	border-radius: 8px;
+	transition: background 0.25s ease-in-out;
 }
 
 .method-card img,

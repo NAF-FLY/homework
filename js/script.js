@@ -1,13 +1,6 @@
-/* Accrordion */
-btnShowCart.addEventListener('click', () => {
-	accordionCart.classList.toggle('active')
-})
-
-btnShowMissing.addEventListener('click', () => {
-	accordionMissing.classList.toggle('active')
-})
-
 /* Input counter */
+let valueAllProduct, sumAllProduct
+
 document.addEventListener('click', handler, true)
 
 function handler(e) {
@@ -120,6 +113,13 @@ closeBtn.forEach(el => {
 	})
 })
 
+selectBtn.forEach(el => {
+	el.addEventListener('click', () => {
+		popupWrapper.style.display = 'none'
+		popupWrapperDeliver.style.display = 'none'
+	})
+})
+
 selectCard.forEach(el => {
 	el.addEventListener('click', () => {
 		popupWrapper.style.display = 'block'
@@ -146,6 +146,7 @@ function checkedCart() {
 
 	labelCart.forEach(el => (el.innerText = counterCheckbox))
 	countProduct.innerText = counterCheckbox + ' ' + nplural(counterCheckbox)
+	valueAllProduct = childElementCount.length
 }
 
 checkedCart()
@@ -167,22 +168,25 @@ function deleteItem() {
 
 	if (!document.getElementById('item11')) {
 		priceChange1 = 0
+		inputValue1.value = 0
 		priceChangeNo1 -= priceChangeNo1
 		checkbox1.checked = false
 	}
 	if (!document.getElementById('item12')) {
 		priceChange2 = 0
+		inputValue2.value = 0
 		priceChangeNo2 -= priceChangeNo2
 		checkbox2.checked = false
 	}
 	if (!document.getElementById('item13')) {
 		priceChange3 = 0
+		inputValue3.value = 0
 		priceChangeNo3 -= priceChangeNo3
 		checkbox3.checked = false
 	}
 
 	missingText.innerText = `Отсутствуют · ${value} ${nplural(value)}`
-
+	allCheckbox.checked = true
 	checkedItems()
 }
 
@@ -288,8 +292,6 @@ listItems.forEach(list => {
 })
 
 function checkedItems() {
-	// console.log(document.getElementById('item11').length)
-
 	let countPrice1 = checkbox1.checked ? priceChange1 : 0,
 		countPrice2 = checkbox2.checked ? priceChange2 : 0,
 		countPrice3 = checkbox3.checked ? priceChange3 : 0
@@ -299,8 +301,8 @@ function checkedItems() {
 		countPriceNo3 = checkbox3.checked ? priceChangeNo3 : 0
 
 	if (
-		checkbox1.checked == false &&
-		checkbox2.checked == false &&
+		checkbox1.checked == false ||
+		checkbox2.checked == false ||
 		checkbox3.checked == false
 	) {
 		allCheckbox.checked = false
@@ -321,6 +323,8 @@ function checkedItems() {
 				parseInt(totalSumNoDiscount[0].textContent.replace(/\s/g, ''))
 		) + ' cом'
 
+	sumAllProduct = prettify(priceChange1 + priceChange2 + priceChange3)
+
 	checkedConfirm()
 	checkedCart()
 }
@@ -335,6 +339,7 @@ allCheckbox.addEventListener('click', function () {
 		checkbox2.checked = false
 		checkbox3.checked = false
 	}
+
 	checkedItems()
 	deleteItem()
 })
