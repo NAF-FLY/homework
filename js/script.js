@@ -54,6 +54,53 @@ let priceChangeNo1 = parseInt(priceNo1[0].textContent),
 	priceChangeNo3 = parseInt(priceNo3[0].textContent)
 /**********************************/
 
+function nplural(int, array) {
+	return (
+		(array = array || ['товар', 'товара', 'товаров']) &&
+		array[
+			int % 100 > 4 && int % 100 < 20
+				? 2
+				: [2, 0, 1, 1, 1, 2][int % 10 < 5 ? int % 10 : 5]
+		]
+	)
+}
+
+popupWrapperDeliver.addEventListener('input', checkAddress)
+
+function checkAddress(e) {
+	let target = e.target
+	let isClicked = e.currentTarget
+
+	let address = ''
+
+	if (target.id == 'address1') {
+		address = e.currentTarget.getElementsByTagName('label')[0].innerText
+	} else if (target.id == 'address2') {
+		address = e.currentTarget.getElementsByTagName('label')[1].innerText
+	} else if (target.id == 'address3') {
+		address = e.currentTarget.getElementsByTagName('label')[2].innerText
+	}
+
+	isClicked.getElementsByTagName('button')[2].onclick = function () {
+		addressText.innerText = address
+		addressSubText.innerText = address
+	}
+}
+
+popupWrapper.addEventListener('input', checkCard)
+
+function checkCard(e) {
+	let target = e.target
+	let isClicked = e.currentTarget
+	cardText = ''
+	const typeCard = target.id
+
+	isClicked.getElementsByTagName('button')[0].onclick = function () {
+		cardImg[0].src = `assets/images/icons/${typeCard}.svg`
+		cardImg[1].src = `assets/images/icons/${typeCard}.svg`
+	}
+}
+
 confirmingCheckbox.addEventListener('click', checkedConfirm)
 
 function checkedConfirm() {
@@ -93,12 +140,12 @@ function checkedCart() {
 			counterCheckbox++
 		}
 	})
-
 	counterCheckbox > 0
-		? (labelCart.style.display = 'grid')
-		: (labelCart.style.display = 'none')
+		? labelCart.forEach(el => (el.style.display = 'grid'))
+		: labelCart.forEach(el => (el.style.display = 'none'))
 
-	labelCart.innerText = counterCheckbox
+	labelCart.forEach(el => (el.innerText = counterCheckbox))
+	countProduct.innerText = counterCheckbox + ' ' + nplural(counterCheckbox)
 }
 
 checkedCart()
@@ -109,11 +156,45 @@ function prettify(number) {
 		.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, '$1' + ' ')
 }
 
-listItems.addEventListener('click', amountOfMoney)
+function deleteItem() {
+	let value = deleteBtn1.length
+
+	for (let i = 0; i < deleteBtn.length; i++) {
+		deleteBtn[i].addEventListener('click', e => {
+			e.target.parentNode.parentNode.parentElement.remove(e.target.parentNode)
+		})
+	}
+
+	if (!document.getElementById('item11')) {
+		priceChange1 = 0
+		priceChangeNo1 -= priceChangeNo1
+		checkbox1.checked = false
+	}
+	if (!document.getElementById('item12')) {
+		priceChange2 = 0
+		priceChangeNo2 -= priceChangeNo2
+		checkbox2.checked = false
+	}
+	if (!document.getElementById('item13')) {
+		priceChange3 = 0
+		priceChangeNo3 -= priceChangeNo3
+		checkbox3.checked = false
+	}
+
+	missingText.innerText = `Отсутствуют · ${value} ${nplural(value)}`
+
+	checkedItems()
+}
+
+deleteItem()
+
+listItems.forEach(list => {
+	list.addEventListener('click', amountOfMoney)
+})
 
 function amountOfMoney(e) {
+	deleteItem()
 	let target = e.target
-
 	if (target.className == 'btn-plus') {
 		switch (target.parentElement.id) {
 			case 'item11': {
@@ -197,22 +278,17 @@ function amountOfMoney(e) {
 			}
 		}
 	}
+
 	checkedItems()
 	checkedConfirm()
 }
 
-listItems.addEventListener('input', checkedItems)
+listItems.forEach(list => {
+	list.addEventListener('input', checkedItems)
+})
 
 function checkedItems() {
-	// let countItem1 = checkbox1.checked
-	// 		? document.querySelector('.input-quantity1').value
-	// 		: 0,
-	// 	countItem2 = checkbox2.checked
-	// 		? document.querySelector('.input-quantity2').value
-	// 		: 0,
-	// 	countItem3 = checkbox3.checked
-	// 		? document.querySelector('.input-quantity3').value
-	// 		: 0
+	// console.log(document.getElementById('item11').length)
 
 	let countPrice1 = checkbox1.checked ? priceChange1 : 0,
 		countPrice2 = checkbox2.checked ? priceChange2 : 0,
@@ -235,6 +311,7 @@ function checkedItems() {
 	) {
 		allCheckbox.checked = true
 	}
+
 	totalSum.innerText = prettify(countPrice1 + countPrice2 + countPrice3)
 	totalSumNoDiscount[0].innerText =
 		prettify(countPriceNo1 + countPriceNo2 + countPriceNo3) + ' сом'
@@ -259,4 +336,5 @@ allCheckbox.addEventListener('click', function () {
 		checkbox3.checked = false
 	}
 	checkedItems()
+	deleteItem()
 })

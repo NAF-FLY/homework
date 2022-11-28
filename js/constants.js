@@ -6,17 +6,21 @@ const btnShowCart = document.querySelector('.list-items__checkbox-all'),
 
 /* Checkbox */
 const allCheckbox = document.getElementById('checkbox-id'),
+	missingText = document.querySelector('.checkbox-all__missing-text'),
 	checkbox1 = document.getElementById('item1'),
 	checkbox2 = document.getElementById('item2'),
 	checkbox3 = document.getElementById('item3'),
+	confirmingCheckbox = document.getElementById('confirming'),
 	checkboxes = document.querySelectorAll('.checkbox')
-confirmingCheckbox = document.getElementById('confirming')
 
-const orderBtn = document.querySelector('.order-btn')
+const orderBtn = document.querySelector('.order-btn'),
+	deleteBtn = document.getElementsByClassName('icon-delete')
+
+let deleteBtn1 = document.getElementsByClassName('icon-delete gray-icon')
 
 /* Prices */
 // watch to click events on cards of product
-let listItems = document.querySelector('.list-items__main')
+let listItems = document.querySelectorAll('.list-items__main')
 
 // array of prices
 const priceItems = document.querySelectorAll('.price')
@@ -34,7 +38,8 @@ const priceNo1 = document.querySelectorAll('.price__no-discount.price1'),
 // all calculations for the order block
 const totalSum = document.querySelector('.main-price'),
 	totalSumNoDiscount = document.querySelectorAll('.detail-text.nodiscount'),
-	totalDiscount = document.querySelectorAll('.detail-text.size-discount')
+	totalDiscount = document.querySelectorAll('.detail-text.size-discount'),
+	countProduct = document.querySelector('.detail-text__count')
 
 // input value for product
 const inputValue1 = document.querySelector('.input-quantity1'),
@@ -42,11 +47,18 @@ const inputValue1 = document.querySelector('.input-quantity1'),
 	inputValue3 = document.querySelector('.input-quantity3')
 
 // Cart
-const labelCart = document.querySelector('.label-counter')
+const labelCart = document.querySelectorAll('.label-counter')
 
 // Close popup
 const closeBtn = document.querySelectorAll('.close-btn'),
 	popupWrapper = document.querySelector('.background-popup'),
 	popupWrapperDeliver = document.querySelector('.background-popup__delivery'),
 	selectCard = document.querySelectorAll('.select-card'),
-	selectAddress = document.querySelectorAll('.select-address')
+	selectAddress = document.querySelectorAll('.select-address'),
+	selectBtn = document.querySelector('.popup__select-btn')
+
+// Switch address
+const addressText = document.querySelector('.second-text__address'),
+	addressSubText = document.querySelector('.detail-info__subtext')
+
+const cardImg = document.querySelectorAll('.card-select__img')

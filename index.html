@@ -102,6 +102,7 @@
 											<label for="item1"></label>
 											<div class="item-card__photo">
 												<img src="/assets/images/t-shirt.jpg" alt="t-shirt" />
+												<div class="item-card__size">56</div>
 											</div>
 										</div>
 										<div class="item-card__info">
@@ -393,6 +394,7 @@
 										<div class="item-card__wrapper-photo">
 											<div class="item-card__photo gray-photo">
 												<img src="/assets/images/t-shirt.jpg" alt="t-shirt" />
+												<div class="item-card__size">56</div>
 											</div>
 										</div>
 										<div class="item-card__info gray-info">
@@ -404,11 +406,9 @@
 										</div>
 									</div>
 									<div class="item-card__info-detail">
-										<div class="info-detail__count-wrapper">
-											<div class="count__buttons">
-												<div class="icon-like gray-icon"></div>
-												<div class="icon-delete gray-icon"></div>
-											</div>
+										<div class="count__buttons">
+											<div class="icon-like gray-icon"></div>
+											<div class="icon-delete gray-icon"></div>
 										</div>
 									</div>
 									<span class="info-detail__price"></span>
@@ -434,11 +434,9 @@
 										</div>
 									</div>
 									<div class="item-card__info-detail">
-										<div class="info-detail__count-wrapper">
-											<div class="count__buttons">
-												<div class="icon-like gray-icon"></div>
-												<div class="icon-delete gray-icon"></div>
-											</div>
+										<div class="count__buttons">
+											<div class="icon-like gray-icon"></div>
+											<div class="icon-delete gray-icon"></div>
 										</div>
 									</div>
 									<span class="info-detail__price"></span>
@@ -448,6 +446,7 @@
 										<div class="item-card__wrapper-photo">
 											<div class="item-card__photo gray-photo">
 												<img src="/assets/images/book.jpg" alt="book" />
+												<div class="item-card__size">56/54/52...</div>
 											</div>
 										</div>
 										<div class="item-card__info gray-info">
@@ -458,11 +457,9 @@
 										</div>
 									</div>
 									<div class="item-card__info-detail">
-										<div class="info-detail__count-wrapper">
-											<div class="count__buttons">
-												<div class="icon-like gray-icon"></div>
-												<div class="icon-delete gray-icon"></div>
-											</div>
+										<div class="count__buttons">
+											<div class="icon-like gray-icon"></div>
+											<div class="icon-delete gray-icon"></div>
 										</div>
 									</div>
 									<span class="info-detail__price"></span>
@@ -526,7 +523,11 @@
 									<span class="select-card">Изменить</span>
 								</div>
 								<div class="method-card__choose">
-									<img src="assets/images/icons/mir.svg" alt="card mir" />
+									<img
+										src="assets/images/icons/mir.svg"
+										alt="card mir"
+										class="card-select__img"
+									/>
 									<span class="choose-card">1234 56•• •••• 1234</span>
 									<span class="choose-card">01/30</span>
 								</div>
@@ -538,29 +539,60 @@
 								<div class="registration-order__header">
 									<h2 class="detail-registration__text-main">Получатель</h2>
 								</div>
-								<form class="receiver-form__form-filled">
+								<form class="receiver-form__form-filled" novalidate>
 									<div class="form-filled__top">
 										<div class="input-form__wrapper">
-											<input type="text" placeholder="Имя" />
-											<span class="form-filled__warning">Ошибка</span>
+											<input
+												type="text"
+												placeholder="Имя"
+												id="name"
+												required
+												pattern="^[а-яА-ЯёЁa]+$"
+											/>
+											<span class="form-filled__error" aria-live="polite"
+												>Ошибка</span
+											>
 										</div>
 										<div class="input-form__wrapper">
-											<input type="text" placeholder="Фамилия" />
-											<span class="form-filled__warning">Ошибка</span>
+											<input
+												type="text"
+												placeholder="Фамилия"
+												id="surname"
+												required
+												pattern="^[а-яА-ЯёЁa]+$"
+											/>
+											<span class="form-filled__error" aria-live="polite"
+												>Ошибка</span
+											>
 										</div>
 									</div>
 									<div class="form-filled__bottom">
 										<div class="input-form__wrapper">
-											<input type="email" placeholder="Почта" />
-											<span class="form-filled__warning">Ошибка</span>
+											<input
+												type="email"
+												placeholder="Почта"
+												id="email"
+												required
+											/>
+											<span class="form-filled__error" aria-live="polite"
+												>Ошибка</span
+											>
 										</div>
 										<div class="input-form__wrapper">
-											<input type="tel" placeholder="Телефон" />
-											<span class="form-filled__warning">Ошибка</span>
+											<input
+												type="text"
+												placeholder="Телефон"
+												id="tel"
+												pattern="[+( )]*[0-9]"
+												required
+											/>
+											<span class="form-filled__error" aria-live="polite"
+												>Ошибка</span
+											>
 										</div>
 										<div class="input-form__wrapper">
 											<input type="text" placeholder="ИНН" />
-											<span class="form-filled__hint">
+											<span class="form-filled__hint" aria-live="polite">
 												Для таможенного оформления
 											</span>
 										</div>
@@ -573,7 +605,7 @@
 						<div class="total-info__price">
 							<div class="price-text__detail">
 								<h2 class="detail-text-main">Итого</h2>
-								<p class="detail-text">4 товара</p>
+								<p class="detail-text__count">4 товара</p>
 								<p class="detail-text">Скидка</p>
 								<p class="detail-text">Доставка</p>
 							</div>
@@ -631,7 +663,11 @@
 									/>
 								</div>
 								<div class="method-card__choose">
-									<img src="assets/images/icons/mir.svg" alt="card mir" />
+									<img
+										src="assets/images/icons/mir.svg"
+										alt="card mir"
+										class="card-select__img"
+									/>
 									<span>1234 12•• •••• 1234</span>
 								</div>
 							</div>
@@ -684,7 +720,7 @@
 							<p>Мои адреса</p>
 							<div class="address-wrapper__item">
 								<input type="radio" id="address1" name="address" checked />
-								<label for="address1">Бишкек, улица Табышалиева, 57</label>
+								<label for="address1">Бишкек, улица Табышалиева, д. 57</label>
 								<div>
 									<svg
 										width="20"
@@ -783,8 +819,8 @@
 								</div>
 							</div>
 						</div>
+						<button class="popup__select-btn">Выбрать</button>
 					</div>
-					<button class="popup__select-btn">Выбрать</button>
 				</div>
 			</div>
 			<div class="background-popup">
@@ -800,14 +836,14 @@
 					<div class="wrapper__popup-select">
 						<div class="popup-select__card-wrapper">
 							<div class="card-wrapper__item">
-								<input type="radio" id="mir" name="drone" value="mir" checked />
+								<input type="radio" id="mir" name="card" value="mir" checked />
 								<label for="mir">
 									<img src="assets/images/icons/mir.svg" alt="mir" />
 									<p>1234 56•• •••• 1234</p>
 								</label>
 							</div>
 							<div class="card-wrapper__item">
-								<input type="radio" id="visa" name="drone" value="visa" />
+								<input type="radio" id="visa" name="card" value="visa" />
 								<label for="visa">
 									<img src="assets/images/icons/visa.svg" alt="mir" />
 									<p>1234 56•• •••• 1234</p>
@@ -817,7 +853,7 @@
 								<input
 									type="radio"
 									id="mastercard"
-									name="drone"
+									name="card"
 									value="mastercard"
 								/>
 								<label for="mastercard">
@@ -826,28 +862,32 @@
 								</label>
 							</div>
 							<div class="card-wrapper__item">
-								<input type="radio" id="maestro" name="drone" value="maestro" />
+								<input type="radio" id="maestro" name="card" value="maestro" />
 								<label for="maestro">
 									<img src="assets/images/icons/maestro.svg" alt="mir" />
 									<p>1234 56•• •••• 1234</p>
 								</label>
 							</div>
 						</div>
+						<button class="popup__select-btn">Выбрать</button>
 					</div>
-					<button class="popup__select-btn">Выбрать</button>
 				</div>
 			</div>
 			<div class="mobile-menu">
 				<div class="mobile-menu__wrapper">
 					<img src="assets/images/icons/home__mobile.svg" alt="home" />
 					<img src="assets/images/icons/catalog__mobile.svg" alt="catalog" />
-					<img src="assets/images/icons/cart__mobile.svg" alt="cart" />
+					<a href="" class="mobile-menu__link">
+						<img src="assets/images/icons/cart__mobile.svg" alt="cart" />
+						<div class="label-counter">3</div>
+					</a>
 					<img src="assets/images/icons/favorites__mobile.svg" alt="favorite" />
 					<img src="assets/images/icons/profile__mobile.svg" alt="profile" />
 				</div>
 			</div>
 		</div>
 		<script src="js/constants.js"></script>
+		<script src="js/validateForm.js"></script>
 		<script src="js/script.js"></script>
 	</body>
 </html>

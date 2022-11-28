@@ -498,6 +498,7 @@ input::-webkit-inner-spin-button {
 .detail-delivery__main-text {
 	font-size: 16px;
 	line-height: 24px;
+	margin-bottom: 4px;
 }
 
 .second-text__address {
@@ -666,10 +667,6 @@ input:checked + label.confirmation-rule__label:before {
 	line-height: 24px;
 }
 
-.info-detail__count-wrapper {
-	width: 100px;
-}
-
 .gray-photo img {
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
@@ -825,13 +822,17 @@ input:checked + label.confirmation-rule__label:before {
 	color: #8a898e;
 }
 
-.receiver-form__form-filled .form-filled__warning,
+.receiver-form__form-filled .form-filled__error,
 .form-filled__hint {
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 14px;
 	opacity: 0;
 	color: #f55123;
+}
+
+.form-filled__error.active {
+	opacity: 1;
 }
 
 .input-form__wrapper {
@@ -983,7 +984,7 @@ input:checked + label.confirmation-rule__label:before {
 	height: 100%;
 	position: fixed;
 	width: 100%;
-	z-index: 10;
+	z-index: 10000;
 	top: 0;
 	left: 0;
 }
@@ -1150,6 +1151,22 @@ input:checked + label.confirmation-rule__label:before {
 
 .address-wrapper__item div:hover {
 	cursor: pointer;
+}
+
+.item-card__size {
+	position: relative;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 0 4px 1px;
+	border-radius: 6px;
+	font-size: 14px;
+	line-height: 20px;
+	width: max-content;
+	height: 22px;
+	background: var(--white);
+	left: 4px;
+	top: -28px;
 }
 
 @keyframes fade-in {
