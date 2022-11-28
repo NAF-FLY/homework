@@ -701,7 +701,7 @@ input:checked + label.confirmation-rule__label:before {
 }
 
 .icon-like {
-	content: url(../assets/images/icons/like.svg) no-repeat center;
+	-webkit-mask: url(../assets/images/icons/like.svg) no-repeat center;
 	mask: url(../assets/images/icons/like.svg) no-repeat center;
 }
 
