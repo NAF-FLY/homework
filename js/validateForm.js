@@ -13,75 +13,62 @@ const _email = document.getElementById('email'),
 
 const regExp = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$/)
 
-orderBtn.addEventListener('click', () => {
-	/****  EMAIL VALIDATION ****/
-	// If the field is valid, we allow the form to be sent
+orderBtn.addEventListener('click', validateForm)
+
+function validateForm() {
+	// /****  EMAIL VALIDATION ****/
 	if (!_email.validity.valid) {
 		// If the field is not valid, we display the corresponding error message
 		showError()
 	}
-
-	_email.addEventListener('input', () => {
-		// Every time the user enters something,
-		// we are checking whether the form fields are valid
-		if (_email.validity.valid) {
-			// if the field is valid, delete the message
-			emailError.textContent = ''
-		} else {
-			// If the field is not valid, we show the correct error
-			showError()
-		}
-	})
-
 	/****  NAME VALIDATION ****/
 	if (!_name.validity.valid) {
 		showError()
 	}
-	_name.addEventListener('input', () => {
-		if (_name.validity.valid) {
-			nameError.textContent = ''
-		} else {
-			showError()
-		}
-	})
-
 	/****  SURNAME VALIDATION ****/
 	if (!_surname.validity.valid) {
 		showError()
 	}
-	_surname.addEventListener('input', () => {
-		if (_surname.validity.valid) {
-			surnameError.textContent = ''
-		} else {
-			showError()
-		}
-	})
-
 	/****  PHONE NUMBER VALIDATION ****/
 	if (!_tel.validity.valid) {
 		showError()
 	}
-	_tel.addEventListener('input', () => {
-		if (regExp.test(_tel.value)) {
-			telError.textContent = ''
+	/****  VALIDATION TARGET INPUT  ****/
+	form.addEventListener('input', e => {
+		let target = e.target
+		if (target.validity.valid) {
+			switch (target.id) {
+				case 'name': {
+					nameError.textContent = ''
+					break
+				}
+				case 'surname': {
+					surnameError.textContent = ''
+					break
+				}
+				case 'email': {
+					emailError.textContent = ''
+					break
+				}
+				case 'tel': {
+					if (regExp.test(target.value)) {
+						telError.textContent = ''
+					} else {
+						showError()
+					}
+					break
+				}
+				case 'zip': {
+					postCodeError.style.color = '#000'
+					postCodeError.textContent = 'Для таможенного оформления'
+					break
+				}
+			}
 		} else {
 			showError()
 		}
 	})
-
-	/****  POST CODE VALIDATION ****/
-	if (!_postCode.validity.valid) {
-		showError()
-	}
-	_postCode.addEventListener('input', () => {
-		if (_postCode.validity.valid) {
-			postCodeError.style.color = '#000'
-			postCodeError.textContent = 'Для таможенного оформления'
-		} else {
-			showError()
-		}
-	})
-})
+}
 
 function showError() {
 	/****  EMAIL VALIDATION ****/

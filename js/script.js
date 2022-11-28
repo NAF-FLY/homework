@@ -111,21 +111,21 @@ const hideBtns = [closeBtn, selectBtn]
 for (let i = 0; i < hideBtns.length; i++) {
 	hideBtns[i].forEach(btn =>
 		btn.addEventListener('click', () => {
-			popupWrapper.style.display = 'none'
-			popupWrapperDeliver.style.display = 'none'
+			popupWrapper.classList.remove('show')
+			popupWrapperDeliver.classList.remove('show')
 		})
 	)
 }
 
 selectCard.forEach(el => {
 	el.addEventListener('click', () => {
-		popupWrapper.style.display = 'block'
+		popupWrapper.classList.add('show')
 	})
 })
 
 selectAddress.forEach(el => {
 	el.addEventListener('click', () => {
-		popupWrapperDeliver.style.display = 'block'
+		popupWrapperDeliver.classList.add('show')
 	})
 })
 
