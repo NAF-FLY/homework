@@ -1,5 +1,8 @@
 # Wildberries_L0 (Корзина) на чистом  HTML, CSS, JS
+![image](https://user-images.githubusercontent.com/53238795/204395947-b7f2118f-3ee5-477a-98ed-5f8ce14d94d4.png)
 
+
+# Live site - https://naf-fly.github.io/homework/
 Что надо сделать:
 1. Сверстать макет корзины, включая и мобильную версию.
 2. Оживить работу элементов, используя чистый JS без фреймворков.
