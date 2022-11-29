@@ -65,8 +65,8 @@ function checkAddress(e) {
 
 	selectBtn.forEach(el => {
 		el.addEventListener('click', () => {
-			popupWrapper.style.display = 'none'
-			popupWrapperDeliver.style.display = 'none'
+			popupWrapper.classList.remove('show')
+			popupWrapperDeliver.classList.remove('show')
 			addressText.innerText = address
 			addressSubText.innerText = address
 		})
