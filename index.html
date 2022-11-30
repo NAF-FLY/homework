@@ -103,7 +103,7 @@
 								/>
 							</div>
 							<div class="list-items__main content">
-								<div class="list-items__item">
+								<!--	<div class="list-items__item">
 									<div class="item-card">
 										<div class="item-card__wrapper-photo">
 											<input
@@ -387,7 +387,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="cart-info__list-items contentBx-missing active">
@@ -401,7 +401,7 @@
 									class="checkbox-all__arrow-icon"
 								/>
 							</div>
-							<div class="list-items__main content">
+							<!-- <div class="list-items__main content">
 								<div class="list-items__item">
 									<div class="item-card">
 										<div class="item-card__wrapper-photo">
@@ -477,7 +477,7 @@
 									</div>
 									<span class="info-detail__price"></span>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="cart-info__registration-order">
 							<div class="registration-order__delivery-form">
@@ -967,24 +967,22 @@
 				</div>
 			</div>
 		</div>
-		<template>
+		<template class="card-template">
 			<div class="list-items__item">
 				<div class="item-card">
 					<div class="item-card__wrapper-photo">
-						<input type="checkbox" class="checkbox" id="item1" checked />
-						<label for="item1"></label>
+						<input type="checkbox" class="checkbox" />
+						<label for="item1" class="checkbox-label"></label>
 						<div class="item-card__photo">
-							<img src="assets/images/t-shirt.jpg" alt="t-shirt" />
-							<div class="item-card__size">56</div>
+							<img src="enter_src" alt="t-shirt" class="item__img" />
+							<div class="item-card__size"></div>
 						</div>
 					</div>
 					<div class="item-card__info">
 						<div class="info-detail__price-mobile">
-							<p class="price__discount">
-								<span class="price price1">522</span> сом
-							</p>
+							<p class="price__discount"><span class="price"></span> сом</p>
 							<div class="price__no-discount-wrapper">
-								<p class="price__no-discount price1">1051</p>
+								<p class="price__no-discount"></p>
 								<span>сом</span>
 							</div>
 						</div>
@@ -995,7 +993,7 @@
 						</div>
 						<span class="info__extra">Коледино WB</span>
 						<div class="extra__wrapper">
-							<span class="info__extra">ООО Вайлдберриз</span>
+							<span class="info__extra company"></span>
 							<div class="hint-wrapper">
 								<img
 									src="assets/images/icons/info.svg"
@@ -1025,13 +1023,13 @@
 								id="count"
 								value="1"
 								name="count"
-								class="input-quantity1"
+								class="input-quantity"
 								readonly
 							/>
 							<input type="button" value="+" class="btn-plus" />
 						</div>
 						<p class="form__warning">
-							Осталось <span class="stock-item1">2</span> шт.
+							Осталось <span class="stock-item">2</span> шт.
 						</p>
 					</div>
 					<div class="count__buttons">
@@ -1041,11 +1039,11 @@
 				</div>
 				<div class="info-detail__price">
 					<p class="price__discount">
-						<span class="price price1">522</span>
+						<span class="price"></span>
 						<span class="symbol">сом</span>
 					</p>
 					<div class="price__no-discount-wrapper">
-						<p class="price__no-discount price1">1051</p>
+						<p class="price__no-discount"></p>
 						<span>сом</span>
 						<div class="no-discount__hint">
 							<div class="hint__col">
@@ -1059,5 +1057,8 @@
 				</div>
 			</div>
 		</template>
+
+		<script type="module" src="js/addItem.js"></script>
+		<script src="js/helper.js"></script>
 	</body>
 </html>

@@ -1,26 +1,168 @@
+import { prettify } from './helper'
+
 const initialCards = [
 	{
-		name: 'Архыз',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+		id: 1,
+		title: 'Футболка UZcotton мужская',
+		img: '../assets/images/t-shirt.jpg',
+		color: 'Цвет: белый',
+		size: 'Размер: 56',
+		storage: 'Коледино WB',
+		company: 'ООО Вайлдберриз',
+		value: 1,
+		stock: 3,
+		price: 522,
+		priceNoDiscount: 1051,
+		isChecked: true,
 	},
 	{
-		name: 'Челябинская область',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+		id: 2,
+		title:
+			'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
+		img: '../assets/images/smartphone.jpg',
+		color: 'Цвет: прозрачный',
+		storage: 'Коледино WB',
+		company: 'OOO Мегапрофстиль',
+		value: 200,
+		price: 10500,
+		priceNoDiscount: 11500,
+		isChecked: false,
 	},
 	{
-		name: 'Иваново',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-	},
-	{
-		name: 'Камчатка',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-	},
-	{
-		name: 'Холмогорский район',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-	},
-	{
-		name: 'Байкал',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+		id: 3,
+		title:
+			'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell',
+		img: '../assets/images/book.jpg',
+		storage: 'Коледино WB',
+		company: 'ООО Вайлдберриз',
+		value: 2,
+		stock: 2,
+		price: 247,
+		priceNoDiscount: 475,
+		isChecked: true,
 	},
 ]
+
+const amountOfPrice = (...props) => {
+	const [cardValue, cardPrice, cardPriceNoDiscount, item] = props
+	cardPrice.forEach(
+		price => (price.textContent = prettify(item.price * cardValue.value))
+	)
+}
+
+const manageBtnValue = (...props) => {
+	const [
+		cardBtnMinus,
+		cardBtnPlus,
+		cardValue,
+		cardStock,
+		cardPrice,
+		cardPriceNoDiscount,
+		item,
+	] = props
+
+	if (cardValue.value <= 1) {
+		cardBtnMinus.style.opacity = 0.2
+	} else if (
+		cardValue.value == cardStock.textContent &&
+		cardStock.textContent
+	) {
+		cardBtnPlus.style.opacity = 0.2
+		cardBtnMinus.style.opacity = 1
+	}
+
+	cardBtnMinus.addEventListener('click', () => {
+		cardValue.value--
+		if (cardValue.value <= 1) {
+			cardValue.value = 1
+			cardBtnMinus.style.opacity = 0.2
+			cardBtnPlus.style.opacity = 1
+		} else {
+			cardBtnPlus.style.opacity = 1
+			cardBtnMinus.style.opacity = 1
+		}
+		amountOfPrice(cardValue, cardPrice, cardPriceNoDiscount, item)
+	})
+
+	cardBtnPlus.addEventListener('click', () => {
+		cardValue.value++
+		if (cardValue.value > cardStock.textContent && cardStock.textContent) {
+			cardValue.value = parseInt(cardStock.textContent)
+		}
+		if (cardValue.value == cardStock.textContent && cardStock.textContent) {
+			cardBtnMinus.style.opacity = 1
+			cardBtnPlus.style.opacity = 0.2
+		} else {
+			cardBtnPlus.style.opacity = 1
+			cardBtnMinus.style.opacity = 1
+		}
+		amountOfPrice(cardValue, cardPrice, cardPriceNoDiscount, item)
+	})
+}
+
+// Создаем переменную и находим шаблон карточки и получаем контент
+const cardTemplate = document.querySelector('.card-template').content
+
+// Место куда мы будем засовывать наши карточки
+const cardsList = document.querySelectorAll('.list-items__main.content')
+
+// Функция добавления карточки
+const createCards = item => {
+	const cloneCards = cardTemplate.cloneNode(true)
+	const cardTitle = cloneCards.querySelector('.info__title'),
+		cardImage = cloneCards.querySelector('.item__img'),
+		cardPrice = cloneCards.querySelectorAll('.price'),
+		cardPriceNoDiscount = cloneCards.querySelectorAll('.price__no-discount'),
+		cardColor = cloneCards.querySelector('.params-color'),
+		cardSize = cloneCards.querySelector('.params-size'),
+		cardCompany = cloneCards.querySelectorAll('.info__extra.company'),
+		cardValue = cloneCards.querySelector('.input-quantity'),
+		cardCheckbox = cloneCards.querySelector('.checkbox'),
+		cardLabelCheckbox = cloneCards.querySelector('.checkbox-label'),
+		cardBtnMinus = cloneCards.querySelector('.btn-minus'),
+		cardBtnPlus = cloneCards.querySelector('.btn-plus'),
+		cardStock = cloneCards.querySelector('.stock-item'),
+		cardStockWarning = cloneCards.querySelector('.form__warning')
+
+	cardTitle.textContent = item.title
+	cardImage.src = item.img
+	// cardPrice.forEach(price => (price.textContent = item.price))
+	cardPriceNoDiscount.forEach(
+		price => (price.textContent = item.priceNoDiscount)
+	)
+	cardColor.textContent = item.color
+	cardSize.textContent = item.size
+	cardCompany[0].textContent = item.company
+	cardValue.value = item.value
+	cardValue.id = item.id
+	cardCheckbox.id = item.id
+	cardCheckbox.checked = item.isChecked
+	cardLabelCheckbox.htmlFor = item.id
+	cardStock.textContent = item.stock
+
+	if (!item.stock) {
+		cardStockWarning.style.display = 'none'
+	}
+
+	manageBtnValue(
+		cardBtnMinus,
+		cardBtnPlus,
+		cardValue,
+		cardStock,
+		cardPrice,
+		cardPriceNoDiscount,
+		item
+	)
+
+	amountOfPrice(cardValue, cardPrice, cardPriceNoDiscount, item)
+
+	return cloneCards
+}
+
+// Добавление массива и новых карточек на страницу
+const addCadrs = item => {
+	cardsList[0].append(createCards(item))
+}
+initialCards.forEach(item => {
+	addCadrs(item)
+})

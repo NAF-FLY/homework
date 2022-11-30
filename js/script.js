@@ -152,12 +152,6 @@ function checkedCart() {
 
 checkedCart()
 
-function prettify(number) {
-	return number
-		.toString()
-		.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, '$1' + ' ')
-}
-
 function deleteItem() {
 	let value = deleteBtn1.length
 
