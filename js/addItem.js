@@ -24,7 +24,7 @@ const initialCards = [
 		value: 200,
 		price: 10500,
 		priceNoDiscount: 11500,
-		isChecked: false,
+		isChecked: true,
 	},
 	{
 		id: 3,
@@ -43,7 +43,8 @@ const initialCards = [
 
 let arrayPriceNoDiscount = [],
 	arrayValueItem = [],
-	countCheckbox = 0
+	countCheckbox = 0,
+	totalSumText = 0
 
 countCheckbox >= 0
 	? labelCart.forEach(el => (el.style.display = 'grid'))
@@ -85,9 +86,8 @@ const manageBtnValue = (...props) => {
 		cardPrice,
 		cardPriceNoDiscount,
 		item,
+		cardCheckbox,
 	] = props
-
-	let totalSumText = 0
 
 	if (cardValue.value <= 1) {
 		cardBtnMinus.style.opacity = 0.2
@@ -178,6 +178,10 @@ const createCards = item => {
 		cardStockWarning.style.display = 'none'
 	}
 
+	cardPrice.forEach(price => {
+		totalSum(parseInt((price.textContent = item.price)), cardValue.value)
+	})
+
 	manageBtnValue(
 		cardBtnMinus,
 		cardBtnPlus,
@@ -185,12 +189,9 @@ const createCards = item => {
 		cardStock,
 		cardPrice,
 		cardPriceNoDiscount,
-		item
+		item,
+		cardCheckbox
 	)
-
-	cardPrice.forEach(price => {
-		totalSum(parseInt((price.textContent = item.price)), cardValue.value)
-	})
 
 	if (cardCheckbox.checked) {
 		countCheckbox++
