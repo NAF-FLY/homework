@@ -1,5 +1,3 @@
-import { prettify } from './helper'
-
 const initialCards = [
 	{
 		id: 1,
@@ -42,6 +40,28 @@ const initialCards = [
 		isChecked: true,
 	},
 ]
+
+const totalSum = (cardPrice, cardPriceNoDiscount, item) => {
+	let b = 0
+	// cardPrice.forEach(el => arrayPriceNoDiscoun.push(el.textContent))
+	// cardPrice.forEach(el => console.log(el.textContent))
+
+	// console.log(arrayPriceNoDiscoun)
+	// for (let i = 0; i < cardPrice.length / 2; i++) {
+	// 	cardPrice[i].textContent.replace(/\s/g, '')
+	// 	b += a
+	// 	console.log(b)
+	// 	// totalSum1.textContent += parseInt(
+	// 	// 	cardPrice[i].textContent.r + item.priceeplace(/\s/g, ''))
+	// 	// )
+	// }
+	// for (let i = 0; i < )
+	// initialCards.map(el => console.log(el.price))
+	// cardPrice.forEach(el =>
+	// 	console.log((a += parseInt(el.textContent.replace(/\s/g, ''))))
+	// )
+	// console.log(a)
+}
 
 const amountOfPrice = (...props) => {
 	const [cardValue, cardPrice, cardPriceNoDiscount, item] = props
@@ -108,6 +128,7 @@ const cardsList = document.querySelectorAll('.list-items__main.content')
 
 // Функция добавления карточки
 const createCards = item => {
+	let arrayPriceNoDiscoun = []
 	const cloneCards = cardTemplate.cloneNode(true)
 	const cardTitle = cloneCards.querySelector('.info__title'),
 		cardImage = cloneCards.querySelector('.item__img'),
@@ -126,7 +147,7 @@ const createCards = item => {
 
 	cardTitle.textContent = item.title
 	cardImage.src = item.img
-	// cardPrice.forEach(price => (price.textContent = item.price))
+	// cardPrice.forEach(price => console.log((price.textContent = item.price)))
 	cardPriceNoDiscount.forEach(
 		price => (price.textContent = item.priceNoDiscount)
 	)
@@ -139,6 +160,11 @@ const createCards = item => {
 	cardCheckbox.checked = item.isChecked
 	cardLabelCheckbox.htmlFor = item.id
 	cardStock.textContent = item.stock
+
+	cardPrice.forEach(el => arrayPriceNoDiscoun.push(el.textContent))
+	cardPrice.forEach(el => console.log(el.textContent))
+
+	console.log(arrayPriceNoDiscoun)
 
 	if (!item.stock) {
 		cardStockWarning.style.display = 'none'
@@ -155,6 +181,7 @@ const createCards = item => {
 	)
 
 	amountOfPrice(cardValue, cardPrice, cardPriceNoDiscount, item)
+	totalSum(cardPrice, cardPriceNoDiscount, item)
 
 	return cloneCards
 }

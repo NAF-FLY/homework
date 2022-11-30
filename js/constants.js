@@ -45,7 +45,7 @@ const priceNo1 = document.querySelectorAll('.price__no-discount.price1'),
 	priceNo3 = document.querySelectorAll('.price__no-discount.price3')
 
 // all calculations for the order block
-const totalSum = document.querySelector('.main-price'),
+const totalSum1 = document.querySelector('.main-price'),
 	totalSumNoDiscount = document.querySelectorAll('.detail-text.nodiscount'),
 	totalDiscount = document.querySelectorAll('.detail-text.size-discount'),
 	countProduct = document.querySelector('.detail-text__count')
