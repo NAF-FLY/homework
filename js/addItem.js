@@ -41,33 +41,39 @@ const initialCards = [
 	},
 ]
 
-const totalSum = (cardPrice, cardPriceNoDiscount, item) => {
-	let b = 0
-	// cardPrice.forEach(el => arrayPriceNoDiscoun.push(el.textContent))
-	// cardPrice.forEach(el => console.log(el.textContent))
+let arrayPriceNoDiscount = [],
+	arrayValueItem = [],
+	countCheckbox = 0
 
-	// console.log(arrayPriceNoDiscoun)
-	// for (let i = 0; i < cardPrice.length / 2; i++) {
-	// 	cardPrice[i].textContent.replace(/\s/g, '')
-	// 	b += a
-	// 	console.log(b)
-	// 	// totalSum1.textContent += parseInt(
-	// 	// 	cardPrice[i].textContent.r + item.priceeplace(/\s/g, ''))
-	// 	// )
-	// }
-	// for (let i = 0; i < )
-	// initialCards.map(el => console.log(el.price))
-	// cardPrice.forEach(el =>
-	// 	console.log((a += parseInt(el.textContent.replace(/\s/g, ''))))
-	// )
-	// console.log(a)
+countCheckbox >= 0
+	? labelCart.forEach(el => (el.style.display = 'grid'))
+	: labelCart.forEach(el => (el.style.display = 'none'))
+
+const totalSum = (cardPrice, cardValue) => {
+	let sum = 0
+
+	arrayPriceNoDiscount.push(cardPrice)
+	arrayValueItem.push(cardValue)
+	if (arrayPriceNoDiscount.length == 6) {
+		for (let i = 0; i < arrayPriceNoDiscount.length; i++) {
+			if (i % 2 === 0) {
+				sum += arrayPriceNoDiscount[i] * arrayValueItem[i]
+			}
+		}
+		arrayPriceNoDiscount = []
+		arrayValueItem = []
+	}
+	totalSum1.textContent = prettify(sum)
 }
 
 const amountOfPrice = (...props) => {
 	const [cardValue, cardPrice, cardPriceNoDiscount, item] = props
-	cardPrice.forEach(
-		price => (price.textContent = prettify(item.price * cardValue.value))
-	)
+	cardPrice.forEach(price => {
+		price.textContent = prettify(item.price * cardValue.value)
+	})
+	cardPriceNoDiscount.forEach(price => {
+		price.textContent = prettify(item.priceNoDiscount * cardValue.value)
+	})
 }
 
 const manageBtnValue = (...props) => {
@@ -81,6 +87,8 @@ const manageBtnValue = (...props) => {
 		item,
 	] = props
 
+	let totalSumText = 0
+
 	if (cardValue.value <= 1) {
 		cardBtnMinus.style.opacity = 0.2
 	} else if (
@@ -92,6 +100,10 @@ const manageBtnValue = (...props) => {
 	}
 
 	cardBtnMinus.addEventListener('click', () => {
+		if (cardValue.value > 1) {
+			totalSumText = unprettify(totalSum1.textContent) - item.price
+			totalSum1.textContent = prettify(totalSumText)
+		}
 		cardValue.value--
 		if (cardValue.value <= 1) {
 			cardValue.value = 1
@@ -105,6 +117,10 @@ const manageBtnValue = (...props) => {
 	})
 
 	cardBtnPlus.addEventListener('click', () => {
+		if (cardValue.value < cardStock.textContent || !cardStock.textContent) {
+			totalSumText = unprettify(totalSum1.textContent) + item.price
+			totalSum1.textContent = prettify(totalSumText)
+		}
 		cardValue.value++
 		if (cardValue.value > cardStock.textContent && cardStock.textContent) {
 			cardValue.value = parseInt(cardStock.textContent)
@@ -125,10 +141,8 @@ const cardTemplate = document.querySelector('.card-template').content
 
 // Место куда мы будем засовывать наши карточки
 const cardsList = document.querySelectorAll('.list-items__main.content')
-
 // Функция добавления карточки
 const createCards = item => {
-	let arrayPriceNoDiscoun = []
 	const cloneCards = cardTemplate.cloneNode(true)
 	const cardTitle = cloneCards.querySelector('.info__title'),
 		cardImage = cloneCards.querySelector('.item__img'),
@@ -147,7 +161,6 @@ const createCards = item => {
 
 	cardTitle.textContent = item.title
 	cardImage.src = item.img
-	// cardPrice.forEach(price => console.log((price.textContent = item.price)))
 	cardPriceNoDiscount.forEach(
 		price => (price.textContent = item.priceNoDiscount)
 	)
@@ -160,11 +173,6 @@ const createCards = item => {
 	cardCheckbox.checked = item.isChecked
 	cardLabelCheckbox.htmlFor = item.id
 	cardStock.textContent = item.stock
-
-	cardPrice.forEach(el => arrayPriceNoDiscoun.push(el.textContent))
-	cardPrice.forEach(el => console.log(el.textContent))
-
-	console.log(arrayPriceNoDiscoun)
 
 	if (!item.stock) {
 		cardStockWarning.style.display = 'none'
@@ -180,8 +188,24 @@ const createCards = item => {
 		item
 	)
 
+	cardPrice.forEach(price => {
+		totalSum(parseInt((price.textContent = item.price)), cardValue.value)
+	})
+
+	if (cardCheckbox.checked) {
+		countCheckbox++
+	}
+	labelCart.forEach(el => (el.innerText = countCheckbox))
+
+	cardCheckbox.addEventListener('input', () => {
+		cardCheckbox.checked ? countCheckbox++ : countCheckbox--
+		labelCart.forEach(el => (el.innerText = countCheckbox))
+		countCheckbox > 0
+			? labelCart.forEach(el => (el.style.display = 'grid'))
+			: labelCart.forEach(el => (el.style.display = 'none'))
+	})
+
 	amountOfPrice(cardValue, cardPrice, cardPriceNoDiscount, item)
-	totalSum(cardPrice, cardPriceNoDiscount, item)
 
 	return cloneCards
 }

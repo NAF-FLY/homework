@@ -16,8 +16,8 @@ function handler(e) {
 	}
 }
 
-let arrayPrice = [],
-	arrayPriceNoDiscount = []
+let arrayPrice = []
+// arrayPriceNoDiscount = []
 
 /**** price_discount per piece ****/
 priceItems.forEach(el =>
@@ -46,17 +46,6 @@ let priceChangeNo1 = parseInt(priceNo1[0].textContent),
 	priceChangeNo2 = parseInt(priceNo2[0].textContent.replace(/\s/g, '')),
 	priceChangeNo3 = parseInt(priceNo3[0].textContent)
 /**********************************/
-
-function nplural(int, array) {
-	return (
-		(array = array || ['товар', 'товара', 'товаров']) &&
-		array[
-			int % 100 > 4 && int % 100 < 20
-				? 2
-				: [2, 0, 1, 1, 1, 2][int % 10 < 5 ? int % 10 : 5]
-		]
-	)
-}
 
 popupWrapperDeliver.addEventListener('input', checkAddress)
 
@@ -138,11 +127,6 @@ function checkedCart() {
 		}
 	}
 
-	counterCheckbox > 0
-		? labelCart.forEach(el => (el.style.display = 'grid'))
-		: labelCart.forEach(el => (el.style.display = 'none'))
-
-	labelCart.forEach(el => (el.innerText = counterCheckbox))
 	countProduct.innerText = counterCheckbox + ' ' + nplural(counterCheckbox)
 	valueAllProduct =
 		parseInt(inputValue1.value) +
