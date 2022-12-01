@@ -96,7 +96,7 @@
 	line-height: 24px;
 	color: var(--white);
 	width: 100%;
-	padding: 10px 52px 14px 20px;
+	padding: 10px 52px 10px 20px;
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 36px;
 	cursor: pointer;
@@ -117,7 +117,7 @@
 .search-catalog__btn-wrap {
 	display: flex;
 	position: absolute;
-	top: 13.5px;
+	top: 11.5px;
 	right: 22.5px;
 }
 
