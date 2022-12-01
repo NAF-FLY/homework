@@ -58,6 +58,12 @@ function nplural(int, array) {
 	)
 }
 
+function prettify(number) {
+	return number
+		.toString()
+		.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, '$1' + ' ')
+}
+
 popupWrapperDeliver.addEventListener('input', checkAddress)
 
 function checkAddress(e) {
