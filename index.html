@@ -103,7 +103,7 @@
 								/>
 							</div>
 							<div class="list-items__main content">
-								<div class="list-items__item">
+								<!--	<div class="list-items__item">
 									<div class="item-card">
 										<div class="item-card__wrapper-photo">
 											<input
@@ -387,7 +387,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>-->
 							</div>
 						</div>
 						<div class="cart-info__list-items contentBx-missing active">
@@ -401,7 +401,7 @@
 									class="checkbox-all__arrow-icon"
 								/>
 							</div>
-							<div class="list-items__main content">
+							<!-- <div class="list-items__main content">
 								<div class="list-items__item">
 									<div class="item-card">
 										<div class="item-card__wrapper-photo">
@@ -477,7 +477,7 @@
 									</div>
 									<span class="info-detail__price"></span>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="cart-info__registration-order">
 							<div class="registration-order__delivery-form">
@@ -967,5 +967,98 @@
 				</div>
 			</div>
 		</div>
+		<template class="card-template">
+			<div class="list-items__item">
+				<div class="item-card">
+					<div class="item-card__wrapper-photo">
+						<input type="checkbox" class="checkbox" />
+						<label for="item1" class="checkbox-label"></label>
+						<div class="item-card__photo">
+							<img src="enter_src" alt="t-shirt" class="item__img" />
+							<div class="item-card__size"></div>
+						</div>
+					</div>
+					<div class="item-card__info">
+						<div class="info-detail__price-mobile">
+							<p class="price__discount"><span class="price"></span> сом</p>
+							<div class="price__no-discount-wrapper">
+								<p class="price__no-discount"></p>
+								<span>сом</span>
+							</div>
+						</div>
+						<h3 class="info__title">Футболка UZcotton мужская</h3>
+						<div class="info__params">
+							<p class="params-color">Цвет: белый</p>
+							<p class="params-size">Размер: 56</p>
+						</div>
+						<span class="info__extra">Коледино WB</span>
+						<div class="extra__wrapper">
+							<span class="info__extra company"></span>
+							<div class="hint-wrapper">
+								<img
+									src="assets/images/icons/info.svg"
+									alt="info"
+									class="hint-img"
+								/>
+								<div class="extra__hint">
+									<div class="hint-text__wrapper">
+										<p>ООО «ВАЙЛДБЕРРИЗ»</p>
+										<span>ОГРН: 5167746237148</span>
+										<span
+											>129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1,
+											помещение 2, офис 34</span
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="info-detail__count">
+					<div class="count__form">
+						<div class="form__counter" id="item11">
+							<input type="button" value="-" class="btn-minus" />
+							<input
+								type="number"
+								id="count"
+								value="1"
+								name="count"
+								class="input-quantity"
+								readonly
+							/>
+							<input type="button" value="+" class="btn-plus" />
+						</div>
+						<p class="form__warning">
+							Осталось <span class="stock-item">2</span> шт.
+						</p>
+					</div>
+					<div class="count__buttons">
+						<div class="icon-like"></div>
+						<div class="icon-delete"></div>
+					</div>
+				</div>
+				<div class="info-detail__price">
+					<p class="price__discount">
+						<span class="price"></span>
+						<span class="symbol">сом</span>
+					</p>
+					<div class="price__no-discount-wrapper">
+						<p class="price__no-discount"></p>
+						<span>сом</span>
+						<div class="no-discount__hint">
+							<div class="hint__col">
+								<span>Скидка 55%</span><span>Скидка покупателя 10%</span>
+							</div>
+							<div class="hint__col">
+								<span>-300 сом</span><span>-30 сом</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<script type="module" src="js/addItem.js"></script>
+		<script src="js/helper.js"></script>
 	</body>
 </html>
