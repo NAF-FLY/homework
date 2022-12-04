@@ -1,0 +1,108 @@
+.background-popup {
+	background: rgba(5, 0, 10, 0.3);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 0s linear 0.2s, opacity 0.2s 0s;
+}
+
+.background-popup.show {
+	opacity: 1;
+	visibility: visible;
+	transition: visibility 0s linear 0s, opacity 0.2s 0s;
+}
+
+.popup-header {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.wrapper__popup-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.payment-method__popup,
+.delivery__popup {
+	position: absolute;
+	padding: 16px 22px 24px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 400px;
+	height: 406px;
+	background: var(--white);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 16px;
+}
+
+.delivery__popup {
+	width: 500px;
+}
+
+.popup-select__card-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.popup-delivery__address-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.popup-delivery__address-wrapper p {
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.wrapper__popup-select {
+	margin-top: 13px;
+	margin-bottom: 16px;
+}
+
+.close-btn,
+.popup__select-btn {
+	cursor: pointer;
+}
+
+.order-btn:hover,
+.popup__select-btn:hover {
+	background: #e52bc3;
+}
+
+.popup__select-btn {
+	position: absolute;
+	bottom: 24px;
+	padding: 10px 48px 12px;
+	background: var(--text-magenta);
+	color: var(--white);
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+	border-radius: 8px;
+	transition: background 0.25s ease-in-out;
+	font-weight: 700;
+}
+
+.wrapper__popup-choose {
+	display: flex;
+	justify-content: center;
+	margin-top: 13px;
+	margin-bottom: 24px;
+	gap: 8px;
+}
+
+.wrapper__popup-select .popup-select__card-wrapper {
+	margin-top: 24px;
+}

@@ -1,0 +1,138 @@
+.header {
+	display: block;
+	position: relative;
+	background-color: var(--primary);
+	padding: 20px 0 40px;
+}
+
+.header::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 24px;
+	background: #f6f6fa;
+	border-radius: 24px 24px 0px 0px;
+	position: absolute;
+	bottom: -4px;
+}
+
+.header__container {
+	align-items: center;
+	gap: 32px;
+	padding: 0 24px;
+}
+
+.header__nav-element {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.nav-element__burger {
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	border-radius: 8px;
+	padding: 12px 10px;
+	transition: border-color ease-in-out 0.2s;
+}
+
+.nav-element__burger:hover {
+	border-color: var(--white);
+}
+
+.nav-element__burger > img {
+	display: block;
+}
+
+.header__burger > img {
+	display: block;
+	width: 22.5px;
+	height: 18.5px;
+}
+
+.nav-element__logo {
+	max-width: 110px;
+	color: var(--white);
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 24px;
+	letter-spacing: 0.02em;
+	cursor: default;
+}
+
+.header__search-catalog {
+	flex-grow: 1;
+}
+
+.search-catalog__container {
+	position: relative;
+}
+
+.search-catalog__input {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: var(--white);
+	width: 100%;
+	padding: 10px 52px 10px 20px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 36px;
+	cursor: pointer;
+}
+
+.search-catalog__input::placeholder {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	color: var(--white);
+	opacity: 0.5;
+}
+
+.search-catalog__input:focus {
+	cursor: text;
+}
+
+.search-catalog__btn-wrap {
+	display: flex;
+	position: absolute;
+	top: 11.5px;
+	right: 22.5px;
+}
+
+.search-catalog__btn {
+	display: block;
+	position: relative;
+	color: var(--white);
+	opacity: 0.5;
+	cursor: pointer;
+	transition: opacity linear 0.2s;
+}
+
+.header__search {
+	height: 20.14px;
+}
+
+.search-catalog__btn:hover {
+	opacity: 1;
+}
+
+.header__navbar-menu {
+	position: relative;
+	display: flex;
+	gap: 40px;
+}
+
+.navbar-menu__item {
+	cursor: pointer;
+}
+
+.navbar-menu__link {
+	color: var(--white);
+	text-decoration: none;
+}
+
+.navbar-menu__icon {
+	display: block;
+	height: 22px;
+	margin: 0 auto 6px;
+	position: relative;
+}
