@@ -1,4 +1,5 @@
 const form = document.getElementsByTagName('form')[0]
+const orderBtn = document.querySelector('.order-btn')
 
 const _email = document.getElementById('email'),
 	emailError = document.querySelector('#email + span.form-filled__error'),
@@ -6,7 +7,7 @@ const _email = document.getElementById('email'),
 	nameError = document.querySelector('#name + span.form-filled__error'),
 	_surname = document.getElementById('surname'),
 	surnameError = document.querySelector('#surname + span.form-filled__error'),
-	_tel = (document = document.querySelector('#tel')),
+	_tel = document.querySelector('#tel'),
 	telError = document.querySelector('#tel + span.form-filled__error'),
 	_postCode = document.querySelector('#zip'),
 	postCodeError = document.querySelector('#zip + span.form-filled__hint')
@@ -134,7 +135,7 @@ function showError() {
 			new_value = new_value.slice(0, i)
 		}
 		var reg = matrix
-			.substr(0, this.value.length)
+			.substring(0, this.value.length)
 			.replace(/_+/g, function (a) {
 				return '\\d{1,' + a.length + '}'
 			})

@@ -1,0 +1,38 @@
+.accordion .contentBx,
+.contentBx-missing {
+	position: relative;
+	margin-bottom: 40px;
+}
+
+.accordion .contentBx .list-items__checkbox-all,
+.accordion .contentBx-missing .list-items__checkbox-all-missing {
+	position: relative;
+	cursor: pointer;
+}
+
+.accordion .contentBx .content {
+	position: relative;
+	height: 0;
+	opacity: 0;
+}
+
+.accordion .contentBx-missing .content {
+	position: relative;
+	height: 0;
+	opacity: 0;
+}
+
+.accordion .contentBx.active .content,
+.accordion .contentBx-missing.active .content {
+	height: min-content;
+	opacity: 1;
+}
+
+.checkbox-all__arrow-icon {
+	transition: transform 0.2s ease-out;
+}
+
+.contentBx.active .checkbox-all__arrow-icon,
+.contentBx-missing.active .checkbox-all__arrow-icon {
+	transform: rotate(-180deg);
+}
