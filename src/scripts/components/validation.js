@@ -2,15 +2,15 @@ const form = document.getElementsByTagName('form')[0]
 const orderBtn = document.querySelector('.order-btn')
 
 const _email = document.getElementById('email'),
-	emailError = document.querySelector('#email + span.form-filled__error'),
+	emailError = document.querySelector('#email ~ span.form-filled__error'),
 	_name = document.getElementById('name'),
-	nameError = document.querySelector('#name + span.form-filled__error'),
+	nameError = document.querySelector('#name ~ span.form-filled__error'),
 	_surname = document.getElementById('surname'),
-	surnameError = document.querySelector('#surname + span.form-filled__error'),
+	surnameError = document.querySelector('#surname ~ span.form-filled__error'),
 	_tel = document.querySelector('#tel'),
-	telError = document.querySelector('#tel + span.form-filled__error'),
+	telError = document.querySelector('#tel ~ span.form-filled__error'),
 	_postCode = document.querySelector('#zip'),
-	postCodeError = document.querySelector('#zip + span.form-filled__hint')
+	postCodeError = document.querySelector('#zip ~ span.form-filled__hint')
 
 const regExp = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$/)
 

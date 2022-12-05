@@ -56,10 +56,36 @@
 	flex-direction: column;
 	width: 100%;
 	gap: 4px;
+	position: relative;
 }
 
 .input-form__wrapper input {
 	width: inherit;
+	display: block;
+}
+
+.input-form__wrapper label {
+	position: absolute;
+	top: 0;
+	color: #8a898e;
+	font-size: 16px;
+	pointer-events: none;
+	transform: translateY(0);
+	transition: all 0.4s ease-in-out;
+}
+
+.input-form__wrapper label:before {
+	content: none;
+}
+
+.input-form__wrapper input::placeholder {
+	color: transparent;
+}
+
+.input-form__wrapper input:focus + label,
+.input-form__wrapper input:not(:placeholder-shown) + label {
+	font-size: 13px;
+	transform: translateY(-15px);
 }
 
 .form-filled__hint {
