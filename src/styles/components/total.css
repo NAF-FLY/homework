@@ -36,6 +36,22 @@
 	text-align: end;
 }
 
+.detail-main-sum {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 4px;
+}
+
+.detail-main-sum span {
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.confirmation-rule-label {
+	font-size: 13px;
+	line-height: 16px;
+}
+
 .detail-delivery {
 	display: flex;
 	justify-content: space-between;
@@ -199,4 +215,23 @@
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 16px;
+}
+
+.confirmation-rule__label:before {
+	content: '';
+	display: inline-flex;
+	margin-right: 11px;
+	position: relative;
+	width: 22px;
+	border: none;
+	line-height: 0px;
+	border-radius: 6px;
+}
+
+input:checked + label.confirmation-rule__label:before {
+	content: url(../../assets/images/icons/check-black.svg);
+	display: flex;
+	align-items: center;
+	background: transparent;
+	border: none;
 }
