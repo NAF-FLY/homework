@@ -4,6 +4,16 @@
 	margin-bottom: 40px;
 }
 
+.contentBx-missing {
+	margin-top: 0;
+}
+
+.checkbox-all__missing-text {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+}
+
 .accordion .contentBx .list-items__checkbox-all,
 .accordion .contentBx-missing .list-items__checkbox-all-missing {
 	position: relative;
