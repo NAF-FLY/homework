@@ -18,14 +18,22 @@
 	justify-content: space-between;
 }
 
-.detail-text-main,
-.detail-main-sum {
-	margin-bottom: 8px;
+.price-text__detail {
+	margin-top: -4px;
+}
+
+.detail-text-main {
+	margin-bottom: 13px;
 	font-weight: 700;
-	font-size: 24px;
+	font-size: 26px;
 	line-height: 32px;
 	letter-spacing: -0.01em;
 	white-space: nowrap;
+}
+
+.detail-main-sum {
+	margin-bottom: 13px;
+	font-size: 20px;
 }
 
 .detail-text {
@@ -58,9 +66,10 @@
 }
 
 .detail-delivery__main-text {
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 24px;
-	margin-bottom: 4px;
+	margin-bottom: 9px;
+	margin-top: -5px;
 }
 
 .detail-delivery__second-text {
@@ -151,13 +160,16 @@
 
 .method-card__text {
 	font-weight: 700;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 17px;
+	line-height: 22px;
+	letter-spacing: 0.02em;
 }
 
 .method-card__choose {
 	display: flex;
 	align-items: center;
+	margin-top: 6px;
+	margin-bottom: 2px;
 	gap: 8px;
 }
 
@@ -167,10 +179,6 @@
 	font-size: 13px;
 	line-height: 16px;
 	padding: 4px 0;
-}
-
-.method-card__choose {
-	margin-bottom: 8px;
 }
 
 .method-card__choose .choose-card {
@@ -192,19 +200,29 @@
 	display: flex;
 }
 
-.confirmation-label,
-.confirmation-text {
+.confirmation-label {
+	display: flex;
 	font-size: 13px;
 	user-select: none;
+	letter-spacing: 0.01em;
+}
+
+.confirmation-text {
+	margin-top: -2px;
+	font-size: 13px;
+	user-select: none;
+	line-height: 16px;
+	letter-spacing: 0.005em;
 }
 
 .order-btn {
 	font-weight: 700;
 	font-size: 16px;
-	line-height: 24px;
+	line-height: 25px;
+	letter-spacing: 0.04em;
 	width: 100%;
 	border-radius: 8px;
-	padding: 8px 0 12px;
+	padding: 6px 0 14px;
 	background: var(--text-magenta);
 	color: var(--white);
 	margin-bottom: 12px;
@@ -228,10 +246,18 @@
 	border-radius: 6px;
 }
 
+.confirmation-label:before {
+	margin-right: 7px;
+	line-height: 16px;
+}
+
 input:checked + label.confirmation-rule__label:before {
 	content: url(../../assets/images/icons/check-black.svg);
 	display: flex;
-	align-items: center;
+	align-items: baseline;
+	justify-content: flex-start;
 	background: transparent;
 	border: none;
+	margin-top: 2px;
+	margin-right: 0;
 }

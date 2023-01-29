@@ -1,7 +1,7 @@
 .list-items__main {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 27px;
 }
 
 .list-items__item:first-child {
@@ -119,11 +119,16 @@
 
 .cart-info__main-title {
 	font-weight: 700;
-	font-size: 28px;
+	font-size: 30px;
 	line-height: 36px;
+	letter-spacing: -0.01em;
 }
 .cart-info__list-items {
-	margin-top: 27px;
+	margin-top: 32px;
+}
+
+.checkbox-label {
+	display: flex;
 }
 
 .list-items__checkbox-all,
