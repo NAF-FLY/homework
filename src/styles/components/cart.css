@@ -32,7 +32,7 @@
 }
 
 .item-card__info {
-	max-width: 275px;
+	max-width: 253px;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
@@ -41,12 +41,28 @@
 
 .item-card__info-detail {
 	display: flex;
-	margin-right: 32px;
+	margin-right: 5px;
+}
+
+div.cart-info__list-items.contentBx-missing.active
+	> div.list-items__main.content
+	> div:nth-child(2)
+	> div.item-card
+	> div.item-card__info.gray-info {
+	max-width: 287px;
+}
+
+div.cart-info__list-items.contentBx-missing.active
+	> div.list-items__main.content
+	> div:nth-child(3)
+	> div.item-card
+	> div.item-card__info.gray-info {
+	max-width: 282px;
 }
 
 .info-detail__count {
 	display: flex;
-	margin-right: 32px;
+	margin-right: 5px;
 	flex-direction: column;
 	gap: 8px;
 }
@@ -55,6 +71,11 @@
 	display: flex;
 	gap: 16px;
 	justify-content: end;
+}
+
+.detail-registration__text-main {
+	font-size: 25px;
+	letter-spacing: -0.01em;
 }
 
 .info-detail__price {
@@ -68,9 +89,15 @@
 
 .price__discount {
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 17px;
 	line-height: 28px;
 	white-space: nowrap;
+	margin-top: -4px;
+	margin-bottom: 5px;
+}
+
+div:nth-child(2) > div.info-detail__price > p > span.price {
+	font-size: 13px;
 }
 
 .price__discount .symbol {
@@ -249,6 +276,7 @@
 
 .photo-wrapper__item {
 	position: relative;
+	height: 56px;
 }
 
 .label-counter__item-delivery {
@@ -298,7 +326,6 @@
 
 .detail-info__photo-wrapper img {
 	width: 40px;
-	height: 56px;
 }
 
 .detail-info__free {
