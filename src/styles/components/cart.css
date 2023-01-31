@@ -346,3 +346,39 @@ div:nth-child(2) > div.info-detail__price > p > span.price {
 		width: 100%;
 	}
 }
+
+@media (max-width: 449px) {
+	.cart-info__list-items {
+		margin-top: 20px;
+	}
+
+	.item-card__info {
+		margin-right: 0px;
+	}
+
+	.item-card__photo {
+		height: 106px;
+	}
+
+	.list-items__main {
+		gap: 16px;
+	}
+
+	div.list-items__main.content
+		> div:nth-child(2)
+		> div.item-card
+		> div.item-card__info
+		> h3,
+	div.list-items__main.content
+		> div:nth-child(3)
+		> div.item-card
+		> div.item-card__info
+		> h3 {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		line-height: 1.3em;
+		height: 2.6em;
+	}
+}

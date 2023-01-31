@@ -269,7 +269,7 @@ input:checked + label.confirmation-rule__label:before {
 	}
 
 	.confirmation-rule__text {
-		width: 50%;
+		width: 90%;
 	}
 
 	.detail-text-main {
