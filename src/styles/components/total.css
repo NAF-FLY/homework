@@ -232,6 +232,7 @@
 	font-weight: 400;
 	font-size: 13px;
 	line-height: 16px;
+	width: 100%;
 }
 
 .confirmation-rule__label:before {
@@ -259,4 +260,27 @@ input:checked + label.confirmation-rule__label:before {
 	border: none;
 	margin-top: 2px;
 	margin-right: 0;
+}
+
+@media (max-width: 1024px) {
+	.aside__total {
+		width: 45%;
+		gap: 25px;
+	}
+
+	.confirmation-rule__text {
+		width: 50%;
+	}
+
+	.detail-text-main {
+		margin-bottom: 15px;
+	}
+
+	.detail-main-sum {
+		margin-bottom: 14px;
+	}
+
+	.method-card__text {
+		line-height: 15px;
+	}
 }

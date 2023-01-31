@@ -340,3 +340,9 @@ div:nth-child(2) > div.info-detail__price > p > span.price {
 	line-height: 16px;
 	color: #a0a0a4;
 }
+
+@media (min-width: 1024px) {
+	.cart-info {
+		width: 100%;
+	}
+}

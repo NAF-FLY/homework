@@ -4,12 +4,18 @@
 		justify-content: space-between;
 	}
 
-	.cart-info {
-		width: 65%;
+	.item-card__info {
+		width: 237px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.main__container {
+		margin-top: 9px;
 	}
 
 	.item-card__info {
-		width: 237px;
+		width: 287px;
 	}
 }
 
