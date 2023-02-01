@@ -68,7 +68,9 @@ window.addEventListener('load', () => {
 
 const changeValue = () => {
 	const increaseBtn = document.querySelectorAll('.btn-plus'),
-		decreaseBtn = document.querySelectorAll('.btn-minus')
+		decreaseBtn = document.querySelectorAll('.btn-minus'),
+		counterLabel = document.querySelectorAll('.label-counter__item-delivery')
+	console.log(counterLabel[0])
 
 	increaseBtn.forEach(btn =>
 		btn.addEventListener('click', e => {
@@ -76,6 +78,9 @@ const changeValue = () => {
 
 			changeInputQuantity('increase', target)
 			changeTotalPrice(target)
+			counterLabel[0].textContent = Cart[1].value - 16
+			counterLabel[1].textContent = Cart[2].value
+			counterLabel[2].textContent = 16
 		})
 	)
 
@@ -85,6 +90,9 @@ const changeValue = () => {
 
 			changeInputQuantity('decrease', target)
 			changeTotalPrice(target)
+			counterLabel[0].textContent = Cart[1].value - 16
+			counterLabel[1].textContent = Cart[2].value
+			counterLabel[2].textContent = 16
 		})
 	)
 
