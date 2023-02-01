@@ -4,12 +4,18 @@
 		justify-content: space-between;
 	}
 
-	.cart-info {
-		width: 65%;
+	.item-card__info {
+		width: 237px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.main__container {
+		margin-top: 9px;
 	}
 
 	.item-card__info {
-		width: 237px;
+		width: 287px;
 	}
 }
 
@@ -30,6 +36,11 @@
 
 	.aside__total {
 		max-width: none;
+		width: 100%;
+	}
+
+	.confirmation-rule__text {
+		width: 100%;
 	}
 }
 
@@ -231,6 +242,10 @@
 }
 
 @media (max-width: 479.98px) {
+	.header::after {
+		height: 20px;
+		margin-bottom: 4px;
+	}
 	.mobile-menu__link {
 		position: relative;
 	}
@@ -271,6 +286,15 @@
 		padding: 14px 0 38px;
 	}
 
+	.count__buttons {
+		gap: 23px;
+		margin-right: 5px;
+	}
+
+	.info-detail__price-mobile .price__discount {
+		font-size: 14px;
+	}
+
 	.header__container {
 		gap: 16px;
 		padding: 0 16px;
@@ -291,24 +315,81 @@
 	.cart-info__main-title {
 		font-size: 20px;
 		line-height: 28px;
+		margin-top: -18px;
+		letter-spacing: 0.03em;
 	}
 
 	.detail-registration__text-main {
-		font-size: 20px;
+		font-size: 21px;
 		line-height: 28px;
 	}
 
+	.registration-order__header {
+		margin-bottom: 12px;
+	}
+	.registration-order__delivery-form
+		> .delivery-form__detail-info
+		> h3:nth-child(7) {
+		margin-top: 25px;
+	}
 	.delivery-form__detail-info {
 		grid-template-columns: 1fr;
 		gap: 0;
+	}
+
+	.detail-info__free {
+		padding: 0 10px;
+	}
+
+	.cart-info__registration-order {
+		gap: 20px;
+	}
+
+	.method-card__choose {
+		margin-top: -6px;
 	}
 
 	.detail-info__heading:not(:first-child) {
 		margin-top: 16px;
 	}
 
+	div.cart-info__registration-order
+		> div.registration-order__receiver-form
+		> div {
+		margin-bottom: 26px;
+	}
+
+	.input-form__wrapper:not(:last-child) {
+		margin-bottom: 42px;
+	}
+
+	.receiver-form__form-filled {
+		gap: 46px;
+	}
+
+	.detail-main-sum {
+		margin-bottom: 9px;
+	}
+
+	.main {
+		margin-bottom: 1px;
+	}
+
+	.aside__total {
+		padding: 22px 16px 16px 16px;
+	}
+
 	.item-card {
 		width: auto;
+	}
+
+	.accordion .contentBx.active .content,
+	.accordion .contentBx-missing.active .content {
+		margin-bottom: 40px;
+	}
+
+	.list-items__item {
+		padding-top: 15px;
 	}
 }
 
